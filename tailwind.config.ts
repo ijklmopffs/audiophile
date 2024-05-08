@@ -18,11 +18,9 @@ const config: Config = {
         colorFour: "#fafafa",
         colorFive: "#fbaf85",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      backgroundImage: () => ({
+        bgImage: "url('/public/images/home/desktop/pattern-circles.svg')",
+      }),
     },
   },
   plugins: [],

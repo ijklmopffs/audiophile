@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
 
 export default function NavBar() {
+  const router = useRouter();
+  const isActive = router.pathname === "/";
+
   return (
-    <nav className="bg-black">
-      <div className="max-w-7xl m-auto p-4 flex items-center justify-between">
+    <nav className={isActive ? "bg-black/90" : "bg-black"}>
+      <div className="max-w-5xl m-auto p-4 flex items-center justify-between">
         <Image
           src="/images/shared/desktop/logo.svg"
           alt="nav"
