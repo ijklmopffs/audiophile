@@ -9,11 +9,14 @@ import headphoneImg from "/public/images/shared/desktop/image-category-thumbnail
 import speakerImg from "/public/images/shared/desktop/image-category-thumbnail-speakers.png";
 import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail-earphones.png";
 import big9Speaker from "/public/images/home/desktop/image-speaker-zx9.png";
+import big9SpeakerMobile from "/public/images/home/mobile/image-speaker-zx9.png";
+import big9SpeakerTablet from "/public/images/home/tablet/image-speaker-zx9.png";
 import big7Speaker from "/public/images/home/desktop/image-speaker-zx7.jpg";
 import big7SpeakerMobile from "/public/images/home/mobile/image-speaker-zx7.jpg";
 import big7SpeakerTablet from "/public/images/home/tablet/image-speaker-zx7.jpg";
 import earphones from "/public/images/home/desktop/image-earphones-yx1.jpg";
 import earphonesMobile from "/public/images/home/mobile/image-earphones-yx1.jpg";
+import earphonesTablet from "/public/images/home/tablet/image-earphones-yx1.jpg";
 import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
@@ -78,7 +81,17 @@ export default function Home() {
         <Image
           src={big9Speaker}
           alt="zx7 speaker"
-          className="w-44 h-52 lg:w-60 lg:h-60"
+          className="hidden lg:block w-60"
+        />
+        <Image
+          src={big9SpeakerMobile}
+          alt="zx7 speaker"
+          className="md:hidden"
+        />
+        <Image
+          src={big9SpeakerTablet}
+          alt="zx7 speaker"
+          className="hidden md:block lg:hidden"
         />
         <div className="space-y-8 w-60 md:w-80 mt-5 flex flex-col items-center lg:block text-center lg:text-start">
           <h2 className="uppercase font-bold text-5xl text-white">
@@ -142,7 +155,12 @@ export default function Home() {
         <Image
           src={earphonesMobile}
           alt="earphones"
-          className="rounded-md block lg:hidden"
+          className="rounded-md block md:hidden"
+        />
+        <Image
+          src={earphonesTablet}
+          alt="earphones"
+          className="rounded-md hidden md:block lg:hidden"
         />
         <div className="bg-colorThree rounded-md flex flex-col justify-center space-y-5 w-full p-10">
           <h2 className="font-bold text-2xl uppercase">yx1 earphones</h2>
@@ -180,7 +198,7 @@ export default function Home() {
           src={bestGear}
           alt="showcasing best gear"
           width={350}
-          className="hidden lg:block"
+          className="rounded-md hidden lg:block"
         />
         <Image
           src={bestGearMobile}

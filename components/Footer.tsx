@@ -15,10 +15,18 @@ export default function Footer() {
             />
           </Link>
           <div className="text-white flex flex-col items-center gap-4 mt-10 md:mt-0 md:block md:space-x-4 font-bold text-xs uppercase">
-            <Link href="/">Home</Link>
-            <Link href="/">Headphones</Link>
-            <Link href="/">Speakers</Link>
-            <Link href="/">Earphones</Link>
+            <Link href="/" className="hover:text-colorOne">
+              Home
+            </Link>
+            <Link href="/headphones" className="hover:text-colorOne">
+              Headphones
+            </Link>
+            <Link href="/speakers" className="hover:text-colorOne">
+              Speakers
+            </Link>
+            <Link href="/earphones" className="hover:text-colorOne">
+              Earphones
+            </Link>
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-0 justify-between my-10">
