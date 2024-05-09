@@ -18,9 +18,6 @@ const config: Config = {
         colorFour: "#fafafa",
         colorFive: "#fbaf85",
       },
-      backgroundImage: () => ({
-        bgImage: "url('/public/images/home/desktop/pattern-circles.svg')",
-      }),
     },
   },
   plugins: [],

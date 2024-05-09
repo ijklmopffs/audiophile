@@ -9,18 +9,20 @@ export default function NavBar() {
   return (
     <nav className={isActive ? "bg-black/90" : "bg-black"}>
       <div className="max-w-5xl m-auto p-4 flex items-center justify-between">
-        <Image
-          src="/images/shared/desktop/logo.svg"
-          alt="nav"
-          width={143}
-          height={15}
-        />
+        <Link href="/">
+          <Image
+            src="/images/shared/desktop/logo.svg"
+            alt="nav"
+            width={143}
+            height={15}
+          />
+        </Link>
 
         <div className="text-white space-x-4 font-bold text-xs">
           <Link href="/">Home</Link>
-          <Link href="/">Headphones</Link>
-          <Link href="/">Speakers</Link>
-          <Link href="/">Earphones</Link>
+          <Link href="/headphones">Headphones</Link>
+          <Link href="/speakers">Speakers</Link>
+          <Link href="/earphones">Earphones</Link>
         </div>
 
         <Image
