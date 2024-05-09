@@ -35,9 +35,17 @@ export default function earphones() {
         className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 
       md:gap-10 lg:gap-0 items-center justify-between md:justify-center lg:justify-between"
       >
-        <ProductItem imageSrc={headphoneImg} title="Headphones" />
-        <ProductItem imageSrc={speakerImg} title="Speakers" />
-        <ProductItem imageSrc={earphonesImg} title="Earphones" />
+        <ProductItem
+          imageSrc={headphoneImg}
+          title="Headphones"
+          url={"/headphones"}
+        />
+        <ProductItem imageSrc={speakerImg} title="Speakers" url={"/speakers"} />
+        <ProductItem
+          imageSrc={earphonesImg}
+          title="Earphones"
+          url={"/earphones"}
+        />
       </section>
 
       <section

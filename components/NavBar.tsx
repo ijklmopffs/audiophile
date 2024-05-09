@@ -42,9 +42,21 @@ export default function NavBar() {
               : `gap-20 absolute flex flex-col md:flex-row lg:hidden top-[-100%] left-16 md:left-10 z-10 bg-white shadow-2xl w-96 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
           }
         >
-          <ProductItem imageSrc={headphoneImg} title="Headphones" />
-          <ProductItem imageSrc={speakerImg} title="Speakers" />
-          <ProductItem imageSrc={earphonesImg} title="Earphones" />
+          <ProductItem
+            imageSrc={headphoneImg}
+            title="Headphones"
+            url={"/headphones"}
+          />
+          <ProductItem
+            imageSrc={speakerImg}
+            title="Speakers"
+            url={"/speakers"}
+          />
+          <ProductItem
+            imageSrc={earphonesImg}
+            title="Earphones"
+            url={"/earphones"}
+          />
         </div>
 
         <div className="text-white space-x-4 font-bold text-xs hidden lg:block">

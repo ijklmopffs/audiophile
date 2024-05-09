@@ -69,9 +69,17 @@ export default function Home() {
         className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 
       md:gap-10 lg:gap-0 items-center justify-between md:justify-center lg:justify-between"
       >
-        <ProductItem imageSrc={headphoneImg} title="Headphones" />
-        <ProductItem imageSrc={speakerImg} title="Speakers" />
-        <ProductItem imageSrc={earphonesImg} title="Earphones" />
+        <ProductItem
+          imageSrc={headphoneImg}
+          title="Headphones"
+          url={"/headphones"}
+        />
+        <ProductItem imageSrc={speakerImg} title="Speakers" url={"/speakers"} />
+        <ProductItem
+          imageSrc={earphonesImg}
+          title="Earphones"
+          url={"/earphones"}
+        />
       </section>
 
       <section
@@ -115,7 +123,7 @@ export default function Home() {
 
       <section className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto rounded-md flex relative my-20">
         <div className="absolute left-10 top-32 md:left-20 md:top-24 space-y-5">
-          <h2 className="font-bold text-4xl md:text-2xl uppercase">
+          <h2 className="font-bold text-4xl md:text-2xl uppercase text-black">
             zx7 speaker
           </h2>
           <Button
@@ -160,10 +168,12 @@ export default function Home() {
         <Image
           src={earphonesTablet}
           alt="earphones"
-          className="rounded-md hidden md:block lg:hidden"
+          className="rounded-md hidden md:block lg:hidden w-96"
         />
         <div className="bg-colorThree rounded-md flex flex-col justify-center space-y-5 w-full p-10">
-          <h2 className="font-bold text-2xl uppercase">yx1 earphones</h2>
+          <h2 className="font-bold text-2xl uppercase text-black">
+            yx1 earphones
+          </h2>
           <Button
             bgColor="bg-transparent"
             textColor="text-black"
@@ -181,11 +191,11 @@ export default function Home() {
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
-          <h2 className="uppercase font-bold text-4xl">
+          <h2 className="uppercase font-bold text-4xl text-black">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
           </h2>
-          <p className="font-medium text-sm opacity-50">
+          <p className="font-medium text-sm opacity-50 text-black/70">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
@@ -213,19 +223,4 @@ export default function Home() {
       </section>
     </main>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      metadata: {
-        title: "Audiophile | Home",
-        // description: "A jolly good fellow",
-        // openGraph: {
-        //   image: "https://example.com.image.jpg",
-        //   url: "https:/example.com",
-        // },
-      },
-    },
-  };
 }
