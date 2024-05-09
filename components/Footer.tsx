@@ -4,23 +4,25 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-black">
-      <div className="max-w-5xl mx-auto p-4">
-        <div className="flex items-center justify-between my-20">
-          <Image
-            src="/images/shared/desktop/logo.svg"
-            alt="nav"
-            width={143}
-            height={15}
-          />
-          <div className="text-white space-x-4 font-bold text-xs uppercase">
+      <div className="max-w-md md:max-w-5xl mx-auto p-4">
+        <div className="flex flex-col md:flex-row items-center justify-between my-20">
+          <Link href="/">
+            <Image
+              src="/images/shared/desktop/logo.svg"
+              alt="nav"
+              width={143}
+              height={15}
+            />
+          </Link>
+          <div className="text-white flex flex-col items-center gap-4 mt-10 md:mt-0 md:block md:space-x-4 font-bold text-xs uppercase">
             <Link href="/">Home</Link>
             <Link href="/">Headphones</Link>
             <Link href="/">Speakers</Link>
             <Link href="/">Earphones</Link>
           </div>
         </div>
-        <div className="flex items-center justify-between my-10">
-          <p className="text-white/50 font-medium text-sm w-[30rem]">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-0 justify-between my-10">
+          <p className="text-white/50 font-medium text-sm w-96 text-center md:text-start md:w-[30rem]">
             Audiophile is an all in one stop to fulfill your audio needs. We’re
             a small team of music lovers and sound specialists who are devoted
             to helping you get the most out of personal audio. Come and visit
@@ -50,7 +52,7 @@ export default function Footer() {
             </svg>
           </div>
         </div>
-        <div className="text-white/50 font-bold text-sm">
+        <div className="text-white/50 font-bold text-sm text-center md:text-start">
           <p>Copyright 2021. All Rights Reserved</p>
         </div>
       </div>
