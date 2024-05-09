@@ -3,31 +3,38 @@ import Image from "next/image";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
 import heroImg from "/public/images/home/desktop/image-hero.jpg";
+import headerMobile from "/public/images/home/mobile/image-header.jpg";
+import headerTablet from "/public/images/home/tablet/image-header.jpg";
 import headphoneImg from "/public/images/shared/desktop/image-category-thumbnail-headphones.png";
 import speakerImg from "/public/images/shared/desktop/image-category-thumbnail-speakers.png";
 import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail-earphones.png";
 import big9Speaker from "/public/images/home/desktop/image-speaker-zx9.png";
 import big7Speaker from "/public/images/home/desktop/image-speaker-zx7.jpg";
 import big7SpeakerMobile from "/public/images/home/mobile/image-speaker-zx7.jpg";
+import big7SpeakerTablet from "/public/images/home/tablet/image-speaker-zx7.jpg";
 import earphones from "/public/images/home/desktop/image-earphones-yx1.jpg";
 import earphonesMobile from "/public/images/home/mobile/image-earphones-yx1.jpg";
 import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
+import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 
 export default function Home() {
   return (
     <main>
       <header className="bg-black/90">
-        <section className="max-w-5xl mx-auto">
+        <section className="max-w-5xl mx-auto relative">
           <div className="bg-colorFour/30 w-full h-[.5px]" />
 
           <div className="mt-10 flex items-center">
-            <div className="text-white space-y-7 w-96 hidden lg:block">
+            <div
+              className="text-white space-y-5 md:space-y-7 w-96 absolute lg:static left-20 
+            bottom-80 md:bottom-96 md:left-[21rem] text-center lg:text-start"
+            >
               <span className="opacity-50 text-sm uppercase">new product</span>
               <h1 className="font-bold text-5xl uppercase">
                 xx99 mark ii headphones
               </h1>
-              <p className="opacity-50 text-sm">
+              <p className="opacity-50 text-sm \">
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>
@@ -43,28 +50,37 @@ export default function Home() {
             </div>
 
             <div>
-              <Image src={heroImg} alt="hero" />
+              <Image src={heroImg} alt="hero" className="hidden lg:block" />
+              <Image
+                src={headerTablet}
+                alt="hero"
+                className="hidden md:block lg:hidden"
+              />
+              <Image src={headerMobile} alt="hero" className="md:hidden" />
             </div>
           </div>
         </section>
       </header>
 
-      <section className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 md:gap-0 items-center justify-between">
+      <section
+        className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 
+      md:gap-10 lg:gap-0 items-center justify-between md:justify-center lg:justify-between"
+      >
         <ProductItem imageSrc={headphoneImg} title="Headphones" />
         <ProductItem imageSrc={speakerImg} title="Speakers" />
         <ProductItem imageSrc={earphonesImg} title="Earphones" />
       </section>
 
       <section
-        className="max-w-md md:max-w-5xl mx-auto rounded-md bg-colorOne flex flex-col md:flex-row md:items-start 
-      justify-center items-center pt-10 pb-10 md:pt-20 p-10 md:pb-0 gap-10"
+        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto rounded-md bg-colorOne flex flex-col lg:flex-row lg:items-start 
+      justify-center items-center pt-10 pb-10 md:pt-20 p-10 lg:pb-0 gap-10"
       >
         <Image
           src={big9Speaker}
           alt="zx7 speaker"
           className="w-44 h-52 lg:w-60 lg:h-60"
         />
-        <div className="space-y-8 w-60 md:w-80 mt-5 flex flex-col items-center md:block text-center md:text-start">
+        <div className="space-y-8 w-60 md:w-80 mt-5 flex flex-col items-center lg:block text-center lg:text-start">
           <h2 className="uppercase font-bold text-5xl text-white">
             zx9 speaker
           </h2>
@@ -84,7 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-md md:max-w-5xl mx-auto rounded-md flex relative my-20">
+      <section className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto rounded-md flex relative my-20">
         <div className="absolute left-10 top-32 md:left-20 md:top-24 space-y-5">
           <h2 className="font-bold text-4xl md:text-2xl uppercase">
             zx7 speaker
@@ -109,9 +125,14 @@ export default function Home() {
           alt="zx7 speaker"
           className="rounded-md block md:hidden"
         />
+        <Image
+          src={big7SpeakerTablet}
+          alt="zx7 speaker"
+          className="rounded-md hidden md:block lg:hidden"
+        />
       </section>
 
-      <section className="max-w-md md:max-w-5xl mx-auto flex flex-col md:flex-row gap-10 justify-between">
+      <section className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col md:flex-row gap-10 justify-between">
         <Image
           src={earphones}
           alt="earphones"
@@ -137,8 +158,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-md md:max-w-5xl mx-auto flex flex-col-reverse gap-5 md:gap-0 md:flex-row justify-between items-center my-20">
-        <div className="w-96 space-y-5 text-center md:text-start">
+      <section
+        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
+      justify-between items-center my-20"
+      >
+        <div className="w-96 space-y-5 text-center lg:text-start">
           <h2 className="uppercase font-bold text-4xl">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
@@ -161,7 +185,12 @@ export default function Home() {
         <Image
           src={bestGearMobile}
           alt="showcasing best gear"
-          className="rounded-md block lg:hidden"
+          className="rounded-md block md:hidden"
+        />
+        <Image
+          src={bestGearTablet}
+          alt="showcasing best gear"
+          className="rounded-md hidden md:block lg:hidden"
         />
       </section>
     </main>

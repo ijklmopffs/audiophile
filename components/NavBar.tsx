@@ -1,19 +1,29 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ProductItem from "./ProductItem";
 import hicon from "/public/images/shared/tablet/icon-hamburger.svg";
+import headphoneImg from "/public/images/shared/desktop/image-category-thumbnail-headphones.png";
+import speakerImg from "/public/images/shared/desktop/image-category-thumbnail-speakers.png";
+import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail-earphones.png";
 
 export default function NavBar() {
+  const [nav, setNav] = useState(false);
   const router = useRouter();
   const isActive = router.pathname === "/";
+
+  const toggleState = () => {
+    setNav((prevState) => !prevState);
+  };
 
   return (
     <nav className={isActive ? "bg-black/90" : "bg-black"}>
       <div className="max-w-5xl m-auto p-4 flex items-center justify-between">
-        <div className="flex items-center justify-between md:justify-normal gap-4">
-          <Link href="/" className="lg:hidden">
+        <div className="flex items-center w-[22rem] md:w-auto justify-between md:justify-normal gap-4">
+          <button className="lg:hidden" onClick={toggleState}>
             <Image src={hicon} alt="" />
-          </Link>
+          </button>
 
           <Link href="/">
             <Image
@@ -23,6 +33,18 @@ export default function NavBar() {
               height={15}
             />
           </Link>
+        </div>
+
+        <div
+          className={
+            nav
+              ? `gap-20 absolute flex flex-col md:flex-row lg:hidden top-16 left-16 md:left-10 z-10 bg-white shadow-2xl w-96 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
+              : `gap-20 absolute flex flex-col md:flex-row lg:hidden top-[-100%] left-16 md:left-10 z-10 bg-white shadow-2xl w-96 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
+          }
+        >
+          <ProductItem imageSrc={headphoneImg} title="Headphones" />
+          <ProductItem imageSrc={speakerImg} title="Speakers" />
+          <ProductItem imageSrc={earphonesImg} title="Earphones" />
         </div>
 
         <div className="text-white space-x-4 font-bold text-xs hidden lg:block">

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-black">
       <div className="max-w-md md:max-w-5xl mx-auto p-4">
-        <div className="flex flex-col md:flex-row items-center justify-between my-20">
+        <div className="flex flex-col lg:flex-row items-center md:items-start lg:items-center gap-0 md:gap-4 lg:gap-0 justify-between my-20">
           <Link href="/">
             <Image
               src="/images/shared/desktop/logo.svg"
