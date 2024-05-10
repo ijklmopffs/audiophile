@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Button from "@/components/Button";
 import ProductItem from "@/components/ProductItem";
 import markII from "/public/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import markIITablet from "/public/images/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg";
@@ -114,19 +113,4 @@ export default function headphones() {
       </section>
     </main>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      metadata: {
-        title: "Audiophile | Headphones",
-        // description: "A jolly good fellow",
-        // openGraph: {
-        //   image: "https://example.com.image.jpg",
-        //   url: "https:/example.com",
-        // },
-      },
-    },
-  };
 }

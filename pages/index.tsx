@@ -41,6 +41,7 @@ export default function Home() {
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>
+              {/* <Link href={"/productOne"}> */}
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -50,6 +51,7 @@ export default function Home() {
               >
                 See product
               </Button>
+              {/* </Link> */}
             </div>
 
             <div>
@@ -109,6 +111,7 @@ export default function Home() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
+          {/* <Link href={"/productOne"}> */}
           <Button
             bgColor="bg-black"
             textColor="text-white"
@@ -118,6 +121,7 @@ export default function Home() {
           >
             See product
           </Button>
+          {/* </Link> */}
         </div>
       </section>
 
@@ -126,6 +130,7 @@ export default function Home() {
           <h2 className="font-bold text-4xl md:text-2xl uppercase text-black">
             zx7 speaker
           </h2>
+          {/* <Link href={"/productTwo"}> */}
           <Button
             bgColor="bg-transparent"
             textColor="text-black"
@@ -135,6 +140,7 @@ export default function Home() {
           >
             See product
           </Button>
+          {/* </Link> */}
         </div>
         <Image
           src={big7Speaker}
@@ -174,6 +180,7 @@ export default function Home() {
           <h2 className="font-bold text-2xl uppercase text-black">
             yx1 earphones
           </h2>
+          {/* <Link href={"/productOne"}> */}
           <Button
             bgColor="bg-transparent"
             textColor="text-black"
@@ -183,6 +190,7 @@ export default function Home() {
           >
             See product
           </Button>
+          {/* </Link> */}
         </div>
       </section>
 

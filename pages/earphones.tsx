@@ -86,13 +86,3 @@ export default function earphones() {
     </main>
   );
 }
-
-export async function getStaticProps() {
-  return {
-    props: {
-      metadata: {
-        title: "Audiophile | Earphones",
-      },
-    },
-  };
-}
