@@ -1,7 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
+// import { HandleButtonClick } from "@/helpers/routing";
+// import HeadphonePageProps from "@/interfaces/headphone";
 import heroImg from "/public/images/home/desktop/image-hero.jpg";
 import headerMobile from "/public/images/home/mobile/image-header.jpg";
 import headerTablet from "/public/images/home/tablet/image-header.jpg";
