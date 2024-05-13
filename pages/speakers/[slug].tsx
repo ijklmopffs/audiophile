@@ -79,6 +79,7 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/cart")}
               >
                 Add to Cart
               </Button>
@@ -157,6 +158,7 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/speakers/zx7-speaker")}
               >
                 see product
               </Button>
@@ -176,6 +178,9 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-i-headphones")
+                }
               >
                 see product
               </Button>
@@ -195,6 +200,7 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/headphones/xx59-headphones")}
               >
                 see product
               </Button>
@@ -224,6 +230,7 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/speakers/zx9-speaker")}
               >
                 see product
               </Button>
@@ -243,6 +250,9 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-i-headphones")
+                }
               >
                 see product
               </Button>
@@ -262,6 +272,7 @@ export default function SpeakerPage({ speaker }: SpeakerPageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/headphones/xx59-headphones")}
               >
                 see product
               </Button>

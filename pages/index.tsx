@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
 import heroImg from "/public/images/home/desktop/image-hero.jpg";
@@ -21,6 +22,7 @@ import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main>
       <header className="bg-black/90">
@@ -46,6 +48,9 @@ export default function Home() {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-ii-headphones")
+                }
               >
                 See product
               </Button>
@@ -114,6 +119,7 @@ export default function Home() {
             line=""
             lineWidth=""
             width=""
+            onClick={() => router.push("/speakers/zx9-speaker")}
           >
             See product
           </Button>
@@ -125,17 +131,16 @@ export default function Home() {
           <h2 className="font-bold text-4xl md:text-2xl uppercase text-black">
             zx7 speaker
           </h2>
-          {/* <Link href={"/productTwo"}> */}
           <Button
             bgColor="bg-transparent"
             textColor="text-black"
             line="outline"
             lineWidth="outline-2"
             width=""
+            onClick={() => router.push("/speakers/zx7-speaker")}
           >
             See product
           </Button>
-          {/* </Link> */}
         </div>
         <Image
           src={big7Speaker}
@@ -175,17 +180,16 @@ export default function Home() {
           <h2 className="font-bold text-2xl uppercase text-black">
             yx1 earphones
           </h2>
-          {/* <Link href={"/productOne"}> */}
           <Button
             bgColor="bg-transparent"
             textColor="text-black"
             line="outline"
             lineWidth="outline-2"
             width="w-40"
+            onClick={() => router.push("/earphones/yx1-wireless-earphones")}
           >
             See product
           </Button>
-          {/* </Link> */}
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import ProductSection from "@/components/ProductSection";
+import { useRouter } from "next/router";
+import Button from "@/components/Button";
 import ProductItem from "@/components/ProductItem";
 import zx9 from "/public/images/product-zx9-speaker/desktop/image-category-page-preview.jpg";
 import zx9Tablet from "/public/images/product-zx9-speaker/tablet/image-category-page-preview.jpg";
@@ -14,7 +15,9 @@ import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 
-export default function speakers() {
+export default function Speakers() {
+  const router = useRouter();
+
   return (
     <main>
       <header className="bg-black p-20">
@@ -22,27 +25,97 @@ export default function speakers() {
           speakers
         </h1>
       </header>
-      <ProductSection
-        imageSrc={zx9}
-        imageSrcMobile={zx9Mobile}
-        imageSrcTablet={zx9Tablet}
-        displayStyle="lg:flex-row"
-        product="new product"
-        alt="zx9 speakers"
-        title="zx9 speaker"
-        description="Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups."
-      />
 
-      <ProductSection
-        imageSrc={zx7}
-        imageSrcMobile={zx7Mobile}
-        imageSrcTablet={zx7Tablet}
-        displayStyle="lg:flex-row-reverse"
-        product=""
-        alt="zx7 speakers"
-        title="zx7 speaker"
-        description="Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use."
-      />
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-20 md:my-40">
+        <div
+          className={`flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between`}
+        >
+          <Image
+            src={zx9}
+            alt="zx9 speakers"
+            width={300}
+            className="hidden lg:block rounded-md"
+          />
+          <Image
+            src={zx9Tablet}
+            alt="zx9 speakers"
+            className="hidden md:block lg:hidden rounded-md"
+          />
+          <Image
+            src={zx9Mobile}
+            alt="zx9 speakers"
+            className="rounded-md md:hidden w-4/5"
+          />
+          <div>
+            <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
+              <span className="opacity-50 text-sm uppercase text-colorOne tracking-widest">
+                new product
+              </span>
+              <h1 className="font-bold text-5xl uppercase">zx9 speaker</h1>
+              <p className="opacity-50 text-sm">
+                Upgrade your sound system with the all new ZX9 active speaker.
+                It’s a bookshelf speaker system that offers truly wireless
+                connectivity -- creating new possibilities for more pleasing and
+                practical audio setups.
+              </p>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+                onClick={() => router.push("/speakers/zx9-speaker")}
+              >
+                See product
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-20 md:my-40">
+        <div
+          className={`flex flex-col lg:flex-row-reverse gap-5 lg:gap-0 items-center justify-between`}
+        >
+          <Image
+            src={zx7}
+            alt="zx7 speakers"
+            width={300}
+            className="hidden lg:block rounded-md"
+          />
+          <Image
+            src={zx7Tablet}
+            alt="zx7 speakers"
+            className="hidden md:block lg:hidden rounded-md"
+          />
+          <Image
+            src={zx7Mobile}
+            alt="zx7 speakers"
+            className="rounded-md md:hidden w-4/5"
+          />
+          <div>
+            <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
+              <h1 className="font-bold text-5xl uppercase">zx7 speaker</h1>
+              <p className="opacity-50 text-sm">
+                Stream high quality sound wirelessly with minimal loss. The ZX7
+                bookshelf speaker uses high-end audiophile components that
+                represents the top of the line powered speakers for home or
+                studio use.
+              </p>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+                onClick={() => router.push("/speakers/zx7-speaker")}
+              >
+                See product
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section
         className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 

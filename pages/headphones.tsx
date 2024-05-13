@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 import Image from "next/image";
+import Button from "@/components/Button";
 import ProductItem from "@/components/ProductItem";
 import markII from "/public/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import markIITablet from "/public/images/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg";
@@ -15,9 +17,10 @@ import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail
 import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
-import ProductSection from "@/components/ProductSection";
 
-export default function headphones() {
+export default function Headphones() {
+  const router = useRouter();
+
   return (
     <main>
       <header className="bg-black p-20">
@@ -26,38 +29,148 @@ export default function headphones() {
         </h1>
       </header>
 
-      <ProductSection
-        imageSrc={markII}
-        imageSrcMobile={markIIMobile}
-        imageSrcTablet={markIITablet}
-        displayStyle="lg:flex-row"
-        product="new product"
-        alt="mark II headphones"
-        title="xx99 mark ii headphones"
-        description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
-      />
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-20 md:my-40">
+        <div
+          className={`flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between`}
+        >
+          <Image
+            src={markII}
+            alt="mark II headphones"
+            width={300}
+            className="hidden lg:block rounded-md"
+          />
+          <Image
+            src={markIITablet}
+            alt="mark II headphones"
+            className="hidden md:block lg:hidden rounded-md"
+          />
+          <Image
+            src={markIIMobile}
+            alt="mark II headphones"
+            className="rounded-md md:hidden w-4/5"
+          />
+          <div>
+            <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
+              <span className="opacity-50 text-sm uppercase text-colorOne tracking-widest">
+                new product
+              </span>
+              <h1 className="font-bold text-5xl uppercase">
+                xx99 mark ii headphones
+              </h1>
+              <p className="opacity-50 text-sm">
+                The new XX99 Mark II headphones is the pinnacle of pristine
+                audio. It redefines your premium headphone experience by
+                reproducing the balanced depth and precision of studio-quality
+                sound.
+              </p>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-ii-headphones")
+                }
+              >
+                See product
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <ProductSection
-        imageSrc={markI}
-        imageSrcMobile={markIMobile}
-        imageSrcTablet={markITablet}
-        displayStyle="lg:flex-row-reverse"
-        product=""
-        alt="mark I headphones"
-        title="xx99 mark i headphones"
-        description="As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles mixing engineers, and music aficionados alike in studios and on the go."
-      />
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-20 md:my-40">
+        <div
+          className={`flex flex-col lg:flex-row-reverse gap-5 lg:gap-0 items-center justify-between`}
+        >
+          <Image
+            src={markI}
+            alt="mark I headphones"
+            width={300}
+            className="hidden lg:block rounded-md"
+          />
+          <Image
+            src={markITablet}
+            alt="mark I headphones"
+            className="hidden md:block lg:hidden rounded-md"
+          />
+          <Image
+            src={markIMobile}
+            alt="mark I headphones"
+            className="rounded-md md:hidden w-4/5"
+          />
+          <div>
+            <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
+              <h1 className="font-bold text-5xl uppercase">
+                xx99 mark i headphones
+              </h1>
+              <p className="opacity-50 text-sm">
+                As the gold standard for headphones, the classic XX99 Mark I
+                offers detailed and accurate audio reproduction for audiophiles
+                mixing engineers, and music aficionados alike in studios and on
+                the go.
+              </p>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-i-headphones")
+                }
+              >
+                See product
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <ProductSection
-        imageSrc={xx59}
-        imageSrcMobile={xx59Mobile}
-        imageSrcTablet={xx59Tablet}
-        displayStyle="lg:flex-row"
-        product=""
-        alt="xx59 headphones"
-        title="xx59 headphones"
-        description="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move."
-      />
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-20 md:my-40">
+        <div
+          className={`flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between`}
+        >
+          <Image
+            src={xx59}
+            alt="xx59 headphones"
+            width={300}
+            className="hidden lg:block rounded-md"
+          />
+          <Image
+            src={xx59Tablet}
+            alt="xx59 headphones"
+            className="hidden md:block lg:hidden rounded-md"
+          />
+          <Image
+            src={xx59Mobile}
+            alt="xx59 headphones"
+            className="rounded-md md:hidden w-4/5"
+          />
+          <div>
+            <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
+              <h1 className="font-bold text-5xl uppercase">xx59 headphones</h1>
+              <p className="opacity-50 text-sm">
+                Enjoy your audio almost anywhere and customize it to your
+                specific tastes with the XX59 headphones. The stylish yet
+                durable versatile wireless headset is a brilliant companion at
+                home or on the move.
+              </p>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+                onClick={() => router.push("/headphones/xx59-headphones")}
+              >
+                See product
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section
         className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 

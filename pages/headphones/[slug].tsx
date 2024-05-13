@@ -81,6 +81,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => "/cart"}
               >
                 Add to Cart
               </Button>
@@ -158,6 +159,9 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-i-headphones")
+                }
               >
                 see product
               </Button>
@@ -177,6 +181,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/headphones/xx59-headphones")}
               >
                 see product
               </Button>
@@ -196,6 +201,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/headphones/zx9-speaker")}
               >
                 see product
               </Button>
@@ -225,6 +231,9 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-ii-headphones")
+                }
               >
                 see product
               </Button>
@@ -244,6 +253,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/headphones/xx59-headphones")}
               >
                 see product
               </Button>
@@ -263,6 +273,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/speakers/zx9-speaker")}
               >
                 see product
               </Button>
@@ -285,13 +296,16 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark i</h3>
+              <h3 className="font-bold text-2xl uppercase">xx99 mark ii</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-ii-headphones")
+                }
               >
                 see product
               </Button>
@@ -304,13 +318,16 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark ii</h3>
+              <h3 className="font-bold text-2xl uppercase">xx99 mark i</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() =>
+                  router.push("/headphones/xx99-mark-i-headphones")
+                }
               >
                 see product
               </Button>
@@ -330,6 +347,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
+                onClick={() => router.push("/speakers/zx9-speaker")}
               >
                 see product
               </Button>

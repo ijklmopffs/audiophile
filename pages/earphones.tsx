@@ -1,6 +1,7 @@
 import Image from "next/image";
-import ProductSection from "@/components/ProductSection";
+import { useRouter } from "next/router";
 import ProductItem from "@/components/ProductItem";
+import Button from "@/components/Button";
 import yx1 from "/public/images/product-yx1-earphones/desktop/image-category-page-preview.jpg";
 import yx1Tablet from "/public/images/product-yx1-earphones/mobile/image-category-page-preview.jpg";
 import yx1Mobile from "/public/images/product-yx1-earphones/tablet/image-category-page-preview.jpg";
@@ -11,7 +12,8 @@ import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 
-export default function earphones() {
+export default function Earphones() {
+  const router = useRouter();
   return (
     <main>
       <header className="bg-black p-20">
@@ -20,16 +22,54 @@ export default function earphones() {
         </h1>
       </header>
 
-      <ProductSection
-        imageSrc={yx1}
-        imageSrcMobile={yx1Mobile}
-        imageSrcTablet={yx1Tablet}
-        displayStyle="lg:flex-row"
-        product="new product"
-        alt="yx1 earphones"
-        title="yx1 wireless earphones"
-        description="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature."
-      />
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-20 md:my-40">
+        <div
+          className={`flex flex-col lg:flex-row gap-5 lg:gap-0 items-center justify-between`}
+        >
+          <Image
+            src={yx1}
+            alt="yx1 earphones"
+            width={300}
+            className="hidden lg:block rounded-md"
+          />
+          <Image
+            src={yx1Tablet}
+            alt="yx1 earphones"
+            className="hidden md:block lg:hidden rounded-md"
+          />
+          <Image
+            src={yx1Mobile}
+            alt="yx1 earphones"
+            className="rounded-md md:hidden w-4/5"
+          />
+          <div>
+            <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
+              <span className="opacity-50 text-sm uppercase text-colorOne tracking-widest">
+                new product
+              </span>
+              <h1 className="font-bold text-5xl uppercase">
+                yx1 wireless earphones
+              </h1>
+              <p className="opacity-50 text-sm">
+                Tailor your listening experience with bespoke dynamic drivers
+                from the new YX1 Wireless Earphones. Enjoy incredible
+                high-fidelity sound even in noisy environments with its active
+                noise cancellation feature.
+              </p>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+                onClick={() => router.push("/earphones/yx1-wireless-earphones")}
+              >
+                See product
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section
         className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 
