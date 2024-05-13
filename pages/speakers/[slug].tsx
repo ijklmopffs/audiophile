@@ -6,11 +6,11 @@ import { urlFor } from "@/components/sanity/client";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
 import addCommaToNumber from "@/helpers/convert";
-import HeadphonePageProps from "@/interfaces/headphone";
+import SpeakerPageProps from "@/interfaces/speaker";
 import xx9 from "/public/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
-import xx99 from "/public/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import xx59 from "/public/images/product-xx59-headphones/desktop/image-category-page-preview.jpg";
 import zx9 from "/public/images/product-zx9-speaker/desktop/image-category-page-preview.jpg";
+import zx7 from "/public/images/product-zx7-speaker/desktop/image-category-page-preview.jpg";
 import headphoneImg from "/public/images/shared/desktop/image-category-thumbnail-headphones.png";
 import speakerImg from "/public/images/shared/desktop/image-category-thumbnail-speakers.png";
 import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail-earphones.png";
@@ -18,7 +18,7 @@ import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 
-export default function HeadphonePage({ headphone }: HeadphonePageProps) {
+export default function SpeakerPage({ speaker }: SpeakerPageProps) {
   const router = useRouter();
   const { slug } = router.query;
   const handleGoBack = () => {
@@ -26,16 +26,16 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
   };
   console.log(slug);
 
-  if (!headphone) {
+  if (!speaker) {
     return <div>Loading...</div>;
   }
 
   const items = [
-    { label: "1x", value: headphone.itemsOne },
-    { label: "2x", value: headphone.itemsTwo },
-    { label: "1x", value: headphone.itemsThree },
-    { label: "1x", value: headphone.itemsFour },
-    { label: "1x", value: headphone.itemsFive },
+    { label: "2x", value: speaker.itemsOne },
+    { label: "2x", value: speaker.itemsTwo },
+    { label: "1x", value: speaker.itemsThree },
+    { label: "1x", value: speaker.itemsFour },
+    { label: "1x", value: speaker.itemsFive },
   ];
 
   return (
@@ -48,25 +48,23 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
       </button>
       <section className="flex flex-col md:flex-row gap-4 md:gap-10 lg:gap-0 items-center justify-between">
         <img
-          src={urlFor(headphone.product)}
+          src={urlFor(speaker.product)}
           alt=""
           className="w-[24rem] h-[24rem] md:w-[34rem] md:h-[35rem] rounded-md"
         />
 
         <div className="space-y-5 w-[25rem]">
-          {slug === "xx99-mark-ii-headphones" && (
+          {slug === "zx9-speaker" && (
             <span className="uppercase text-colorOne tracking-[.5em] font-normal text-sm">
               new product
             </span>
           )}
           <h1 className="font-bold text-3xl md:text-4xl w-48 md:w-auto">
-            {headphone.name}
+            {speaker.name}
           </h1>
-          <p className="font-medium text-sm text-black/70">
-            {headphone.details}
-          </p>
+          <p className="font-medium text-sm text-black/70">{speaker.details}</p>
           <p className="font-bold text-lg tracking-widest">
-            ${addCommaToNumber(headphone.price)}
+            ${addCommaToNumber(speaker.price)}
           </p>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-5 bg-colorFour px-5 py-3">
@@ -93,10 +91,10 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
         <div>
           <h2 className="font-bold text-3xl uppercase my-5">Features</h2>
           <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem]">
-            {headphone.featureOne}
+            {speaker.featureOne}
           </p>
           <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem] mt-10">
-            {headphone.featureTwo}
+            {speaker.featureTwo}
           </p>
         </div>
         <div>
@@ -120,33 +118,53 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
       <section className="my-20 md:my-40 flex flex-col md:flex-row items-center justify-between gap-4 lg:gap-0">
         <div className="flex flex-col gap-4">
           <img
-            src={urlFor(headphone.displayOne)}
-            alt={headphone.name}
+            src={urlFor(speaker.displayOne)}
+            alt={speaker.name}
             className="rounded-md h-[17rem]"
           />
           <img
-            src={urlFor(headphone.displayTwo)}
-            alt={headphone.name}
+            src={urlFor(speaker.displayTwo)}
+            alt={speaker.name}
             className="rounded-md h-[17rem]"
           />
         </div>
         <img
-          src={urlFor(headphone.displayThree)}
-          alt={headphone.name}
+          src={urlFor(speaker.displayThree)}
+          alt={speaker.name}
           className="rounded-md h-[35rem] w-[34rem]"
         />
       </section>
 
-      {slug === "xx99-mark-ii-headphones" && (
+      {slug === "zx9-speaker" && (
         <>
           <h3 className="text-center uppercase font-bold text-4xl mb-8">
             you may also like
           </h3>
+
           <section className="flex flex-col gap-16 md:gap-0 md:flex-row items-center justify-between">
             <div className="flex flex-col items-center gap-4">
               <Image
-                src={xx9}
+                src={zx7}
                 alt="xx9"
+                width={200}
+                height={200}
+                className="rounded-md"
+              />
+              <h3 className="font-bold text-2xl uppercase">zx7 speaker</h3>
+              <Button
+                bgColor="bg-colorOne"
+                textColor="text-white"
+                line=""
+                lineWidth=""
+                width=""
+              >
+                see product
+              </Button>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <Image
+                src={xx9}
+                alt="xx59"
                 width={200}
                 height={200}
                 className="rounded-md"
@@ -165,7 +183,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
             <div className="flex flex-col items-center gap-4">
               <Image
                 src={xx59}
-                alt="xx59"
+                alt="zx9"
                 width={200}
                 height={200}
                 className="rounded-md"
@@ -181,6 +199,16 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 see product
               </Button>
             </div>
+          </section>
+        </>
+      )}
+
+      {slug === "zx7-speaker" && (
+        <>
+          <h3 className="text-center uppercase font-bold text-4xl mb-8">
+            you may also like
+          </h3>
+          <section className="flex flex-col gap-16 md:gap-0 md:flex-row items-center justify-between">
             <div className="flex flex-col items-center gap-4">
               <Image
                 src={zx9}
@@ -200,25 +228,15 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 see product
               </Button>
             </div>
-          </section>
-        </>
-      )}
-
-      {slug === "xx99-mark-i-headphones" && (
-        <>
-          <h3 className="text-center uppercase font-bold text-4xl mb-8">
-            you may also like
-          </h3>
-          <section className="flex flex-col gap-16 md:gap-0 md:flex-row items-center justify-between">
             <div className="flex flex-col items-center gap-4">
               <Image
-                src={xx99}
-                alt="xx99"
+                src={xx9}
+                alt="xx9"
                 width={200}
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark ii</h3>
+              <h3 className="font-bold text-2xl uppercase">xx9 mark i</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -238,92 +256,6 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 className="rounded-md"
               />
               <h3 className="font-bold text-2xl uppercase">xx59</h3>
-              <Button
-                bgColor="bg-colorOne"
-                textColor="text-white"
-                line=""
-                lineWidth=""
-                width=""
-              >
-                see product
-              </Button>
-            </div>
-            <div className="flex flex-col items-center gap-4">
-              <Image
-                src={zx9}
-                alt="zx9"
-                width={200}
-                height={200}
-                className="rounded-md"
-              />
-              <h3 className="font-bold text-2xl uppercase">zx9 speaker</h3>
-              <Button
-                bgColor="bg-colorOne"
-                textColor="text-white"
-                line=""
-                lineWidth=""
-                width=""
-              >
-                see product
-              </Button>
-            </div>
-          </section>
-        </>
-      )}
-
-      {slug === "xx59-headphones" && (
-        <>
-          <h3 className="text-center uppercase font-bold text-4xl mb-8">
-            you may also like
-          </h3>
-          <section className="flex flex-col gap-16 md:gap-0 md:flex-row items-center justify-between">
-            <div className="flex flex-col items-center gap-4">
-              <Image
-                src={xx99}
-                alt="xx99"
-                width={200}
-                height={200}
-                className="rounded-md"
-              />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark i</h3>
-              <Button
-                bgColor="bg-colorOne"
-                textColor="text-white"
-                line=""
-                lineWidth=""
-                width=""
-              >
-                see product
-              </Button>
-            </div>
-            <div className="flex flex-col items-center gap-4">
-              <Image
-                src={xx9}
-                alt="xx9"
-                width={200}
-                height={200}
-                className="rounded-md"
-              />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark ii</h3>
-              <Button
-                bgColor="bg-colorOne"
-                textColor="text-white"
-                line=""
-                lineWidth=""
-                width=""
-              >
-                see product
-              </Button>
-            </div>
-            <div className="flex flex-col items-center gap-4">
-              <Image
-                src={zx9}
-                alt="xx99"
-                width={200}
-                height={200}
-                className="rounded-md"
-              />
-              <h3 className="font-bold text-2xl uppercase">zx9 speaker</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -356,7 +288,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
       </section>
 
       <section
-        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
+        className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
@@ -396,27 +328,27 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const HEADPHONE_QUERY = `*[_type == "headphones" && slug.current == $slug]{name, details, featureOne, featureTwo, price, product, itemsOne, itemsTwo, itemsThree, itemsFour, itemsFive, displayOne, displayTwo, displayThree}[0]`;
+  const SPEAKER_QUERY = `*[_type == "speakers" && slug.current == $slug]{name, details, featureOne, featureTwo, price, product, itemsOne, itemsTwo, itemsThree, itemsFour, itemsFive, displayOne, displayTwo, displayThree}[0]`;
 
-  const headphone = await sanityFetch<SanityDocument>({
-    query: HEADPHONE_QUERY,
+  const speaker = await sanityFetch<SanityDocument>({
+    query: SPEAKER_QUERY,
     params: { slug },
   });
 
   return {
     props: {
-      headphone,
+      speaker,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const HEADPHONE_SLUGS_QUERY = `*[_type == "headphones"].slug.current`;
-  const headphoneSlugs = await sanityFetch<string[]>({
-    query: HEADPHONE_SLUGS_QUERY,
+  const SPEAKER_SLUGS_QUERY = `*[_type == "speakers"].slug.current`;
+  const speakerSlugs = await sanityFetch<string[]>({
+    query: SPEAKER_SLUGS_QUERY,
   });
 
-  const paths = headphoneSlugs.map((slug) => ({
+  const paths = speakerSlugs.map((slug) => ({
     params: { slug },
   }));
 

@@ -27,11 +27,31 @@ export const earphones = defineType({
       options: {source: 'name'},
     }),
     {
-      name: 'features',
+      name: 'featureOne',
       type: 'string',
     },
     {
-      name: 'items',
+      name: 'featureTwo',
+      type: 'string',
+    },
+    {
+      name: 'itemsOne',
+      type: 'string',
+    },
+    {
+      name: 'itemsTwo',
+      type: 'string',
+    },
+    {
+      name: 'itemsThree',
+      type: 'string',
+    },
+    {
+      name: 'itemsFour',
+      type: 'string',
+    },
+    {
+      name: 'itemsFive',
       type: 'string',
     },
     {

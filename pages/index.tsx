@@ -1,8 +1,6 @@
 import Image from "next/image";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
-// import { HandleButtonClick } from "@/helpers/routing";
-// import HeadphonePageProps from "@/interfaces/headphone";
 import heroImg from "/public/images/home/desktop/image-hero.jpg";
 import headerMobile from "/public/images/home/mobile/image-header.jpg";
 import headerTablet from "/public/images/home/tablet/image-header.jpg";
@@ -42,7 +40,6 @@ export default function Home() {
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>
-              {/* <Link href={"/productOne"}> */}
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -52,7 +49,6 @@ export default function Home() {
               >
                 See product
               </Button>
-              {/* </Link> */}
             </div>
 
             <div>
@@ -86,7 +82,7 @@ export default function Home() {
       </section>
 
       <section
-        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto rounded-md bg-colorOne flex flex-col lg:flex-row lg:items-start 
+        className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto rounded-md bg-colorOne flex flex-col lg:flex-row lg:items-start 
       justify-center items-center pt-10 pb-10 md:pt-20 p-10 lg:pb-0 gap-10"
       >
         <Image
@@ -112,7 +108,6 @@ export default function Home() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          {/* <Link href={"/productOne"}> */}
           <Button
             bgColor="bg-black"
             textColor="text-white"
@@ -122,11 +117,10 @@ export default function Home() {
           >
             See product
           </Button>
-          {/* </Link> */}
         </div>
       </section>
 
-      <section className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto rounded-md flex relative my-20">
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto rounded-md flex relative my-20">
         <div className="absolute left-10 top-32 md:left-20 md:top-24 space-y-5">
           <h2 className="font-bold text-4xl md:text-2xl uppercase text-black">
             zx7 speaker
@@ -160,7 +154,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col md:flex-row gap-10 justify-between">
+      <section className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto flex flex-col md:flex-row gap-10 justify-between">
         <Image
           src={earphones}
           alt="earphones"
@@ -196,7 +190,7 @@ export default function Home() {
       </section>
 
       <section
-        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
+        className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">

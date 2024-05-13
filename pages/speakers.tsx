@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import ProductSection from "@/components/ProductSection";
 import ProductItem from "@/components/ProductItem";
 import zx9 from "/public/images/product-zx9-speaker/desktop/image-category-page-preview.jpg";
@@ -63,7 +62,7 @@ export default function speakers() {
       </section>
 
       <section
-        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
+        className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
