@@ -1,12 +1,12 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { SanityDocument } from "next-sanity";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { sanityFetch } from "@/components/sanity/client";
 import { urlFor } from "@/components/sanity/client";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
 import addCommaToNumber from "@/helpers/convert";
-import EarphonePageProps from "@/interfaces/earphone";
 import xx9 from "/public/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
 import xx59 from "/public/images/product-xx59-headphones/desktop/image-category-page-preview.jpg";
 import zx9 from "/public/images/product-zx9-speaker/desktop/image-category-page-preview.jpg";
@@ -16,26 +16,77 @@ import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail
 import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
+import { useProvider } from "@/context/provider";
 
-export default function EarphonePage({ earphone }: EarphonePageProps) {
+interface Earphone {
+  name: string;
+  slug: { current: string };
+  id: string;
+  details: string;
+  featureOne: string;
+  featureTwo: string;
+  price: number;
+  product: object;
+  itemsOne: string;
+  itemsTwo: string;
+  itemsThree: string;
+  itemsFour: string;
+  itemsFive: string;
+  displayOne: object;
+  displayTwo: object;
+  displayThree: object;
+}
+
+export default function EarphonePage() {
   const router = useRouter();
   const { slug } = router.query;
+  const [earphone, setEarphone] = useState<Earphone | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const { addToCart, eFigure, decEQty, incEQty, resetFigure } = useProvider();
+
+  useEffect(() => {
+    if (!slug) return;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/earphone?slug=${slug}`);
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.details || "Failed to fetch data");
+        }
+        const data = await response.json();
+        setEarphone(data);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+    resetFigure();
+  }, [slug]);
+
+  const items = [
+    { label: "2x", value: earphone?.itemsOne },
+    { label: "6x", value: earphone?.itemsTwo },
+    { label: "1x", value: earphone?.itemsThree },
+    { label: "1x", value: earphone?.itemsFour },
+    { label: "1x", value: earphone?.itemsFive },
+  ];
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   const handleGoBack = () => {
     router.back();
   };
-  console.log(slug);
 
-  if (!earphone) {
-    return <div>Loading...</div>;
-  }
-
-  const items = [
-    { label: "2x", value: earphone.itemsOne },
-    { label: "6x", value: earphone.itemsTwo },
-    { label: "1x", value: earphone.itemsThree },
-    { label: "1x", value: earphone.itemsFour },
-    { label: "1x", value: earphone.itemsFive },
-  ];
+  const handleAddToCart = () => {
+    addToCart(earphone, eFigure);
+  };
 
   return (
     <main className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-8">
@@ -67,9 +118,9 @@ export default function EarphonePage({ earphone }: EarphonePageProps) {
           </p>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-5 bg-colorFour px-5 py-3">
-              <button>-</button>
-              <p>1</p>
-              <button>+</button>
+              <button onClick={decEQty}>-</button>
+              <p>{eFigure}</p>
+              <button onClick={incEQty}>+</button>
             </div>
             <div>
               <Button
@@ -78,7 +129,7 @@ export default function EarphonePage({ earphone }: EarphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
-                onClick={() => router.push("/cart")}
+                onClick={handleAddToCart}
               >
                 Add to Cart
               </Button>
@@ -263,34 +314,29 @@ export default function EarphonePage({ earphone }: EarphonePageProps) {
   );
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const EARPHONE_QUERY = `*[_type == "earphones" && slug.current == $slug]{name, details, featureOne, featureTwo, price, product, itemsOne, itemsTwo, itemsThree, itemsFour, itemsFive, displayOne, displayTwo, displayThree}[0]`;
-
-  const earphone = await sanityFetch<SanityDocument>({
-    query: EARPHONE_QUERY,
-    params: { slug },
+export const getStaticPaths: GetStaticPaths = async () => {
+  const EARPHONES_QUERY = '*[_type == "earphones"]{ "slug": slug.current }';
+  const earphones = await sanityFetch<{ slug: string }[]>({
+    query: EARPHONES_QUERY,
   });
 
-  return {
-    props: {
-      earphone,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  const EARPHONE_SLUGS_QUERY = `*[_type == "earphones"].slug.current`;
-  const earphoneSlugs = await sanityFetch<string[]>({
-    query: EARPHONE_SLUGS_QUERY,
-  });
-
-  const paths = earphoneSlugs.map((slug) => ({
-    params: { slug },
+  const paths = earphones.map((earphone) => ({
+    params: { slug: earphone.slug },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
-}
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string };
+
+  return {
+    props: {
+      slug,
+      key: slug,
+    },
+  };
+};

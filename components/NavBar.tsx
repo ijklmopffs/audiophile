@@ -7,9 +7,11 @@ import hicon from "/public/images/shared/tablet/icon-hamburger.svg";
 import headphoneImg from "/public/images/shared/desktop/image-category-thumbnail-headphones.png";
 import speakerImg from "/public/images/shared/desktop/image-category-thumbnail-speakers.png";
 import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail-earphones.png";
+import Cart from "./Cart";
 
 export default function NavBar() {
   const [nav, setNav] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const router = useRouter();
   const isActive = router.pathname === "/";
 
@@ -17,9 +19,13 @@ export default function NavBar() {
     setNav((prevState) => !prevState);
   };
 
+  const toggleCart = () => {
+    setShowCart((prevState) => !prevState);
+  };
+
   return (
     <nav className={isActive ? "bg-black/90" : "bg-black"}>
-      <div className="max-w-5xl m-auto p-4 flex items-center justify-between">
+      <div className="max-w-5xl m-auto p-4 flex items-center justify-between relative">
         <div className="flex items-center w-[22rem] md:w-auto justify-between md:justify-normal gap-4">
           <button className="lg:hidden" onClick={toggleState}>
             <Image src={hicon} alt="" />
@@ -74,14 +80,15 @@ export default function NavBar() {
           </Link>
         </div>
 
-        <Link href="/cart">
+        <button onClick={toggleCart}>
           <Image
             src="/images/shared/desktop/icon-cart.svg"
             alt="cart"
             width={20}
             height={20}
           />
-        </Link>
+          {showCart && <Cart positionClass={`top-24 right-[30rem]`} />}
+        </button>
       </div>
     </nav>
   );

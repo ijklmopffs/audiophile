@@ -27,6 +27,10 @@ export const speakers = defineType({
       options: {source: 'name'},
     }),
     {
+      name: 'id',
+      type: 'string',
+    },
+    {
       name: 'featureOne',
       type: 'string',
     },

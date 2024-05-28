@@ -1,12 +1,13 @@
 import Image from "next/image";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { SanityDocument } from "next-sanity";
+import { useEffect, useState } from "react";
 import { sanityFetch } from "@/components/sanity/client";
 import { urlFor } from "@/components/sanity/client";
+import { useProvider } from "@/context/provider";
 import ProductItem from "@/components/ProductItem";
 import Button from "@/components/Button";
 import addCommaToNumber from "@/helpers/convert";
-import HeadphonePageProps from "@/interfaces/headphone";
 import xx9 from "/public/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
 import xx99 from "/public/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import xx59 from "/public/images/product-xx59-headphones/desktop/image-category-page-preview.jpg";
@@ -18,25 +19,75 @@ import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 
-export default function HeadphonePage({ headphone }: HeadphonePageProps) {
+interface Headphone {
+  name: string;
+  slug: { current: string };
+  id: string;
+  details: string;
+  featureOne: string;
+  featureTwo: string;
+  price: number;
+  product: object;
+  itemsOne: string;
+  itemsTwo: string;
+  itemsThree: string;
+  itemsFour: string;
+  itemsFive: string;
+  displayOne: object;
+  displayTwo: object;
+  displayThree: object;
+}
+
+export default function HeadphonePage() {
   const router = useRouter();
   const { slug } = router.query;
+  const [headphone, setHeadphone] = useState<Headphone | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const { addToCart, hFigure, incHQty, decHQty, resetFigure } = useProvider();
+
+  useEffect(() => {
+    if (!slug) return;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/headphone?slug=${slug}`);
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.details || "Failed to fetch data");
+        }
+        const data = await response.json();
+        setHeadphone(data);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+    resetFigure();
+  }, [slug]);
+
+  const items = [
+    { label: "1x", value: headphone?.itemsOne },
+    { label: "2x", value: headphone?.itemsTwo },
+    { label: "1x", value: headphone?.itemsThree },
+    { label: "1x", value: headphone?.itemsFour },
+    { label: "1x", value: headphone?.itemsFive },
+  ];
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   const handleGoBack = () => {
     router.back();
   };
-  console.log(slug);
 
-  if (!headphone) {
-    return <div>Loading...</div>;
-  }
-
-  const items = [
-    { label: "1x", value: headphone.itemsOne },
-    { label: "2x", value: headphone.itemsTwo },
-    { label: "1x", value: headphone.itemsThree },
-    { label: "1x", value: headphone.itemsFour },
-    { label: "1x", value: headphone.itemsFive },
-  ];
+  const handleAddToCart = () => {
+    addToCart(headphone, hFigure);
+  };
 
   return (
     <main className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-8">
@@ -70,9 +121,9 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
           </p>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-5 bg-colorFour px-5 py-3">
-              <button>-</button>
-              <p>1</p>
-              <button>+</button>
+              <button onClick={decHQty}>-</button>
+              <p>{hFigure}</p>
+              <button onClick={incHQty}>+</button>
             </div>
             <div>
               <Button
@@ -81,7 +132,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
                 line=""
                 lineWidth=""
                 width=""
-                onClick={() => "/cart"}
+                onClick={handleAddToCart}
               >
                 Add to Cart
               </Button>
@@ -357,7 +408,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
       )}
 
       <section
-        className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20 
+        className="my-40 max-w-5xl mx-auto flex flex-col md:flex-row gap-20
       md:gap-10 lg:gap-0 items-center justify-between md:justify-center lg:justify-between"
       >
         <ProductItem
@@ -374,7 +425,7 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
       </section>
 
       <section
-        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row 
+        className="max-w-md md:max-w-3xl lg:max-w-5xl mx-auto flex flex-col-reverse gap-5 lg:gap-0 lg:flex-row
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
@@ -412,34 +463,29 @@ export default function HeadphonePage({ headphone }: HeadphonePageProps) {
   );
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const HEADPHONE_QUERY = `*[_type == "headphones" && slug.current == $slug]{name, details, featureOne, featureTwo, price, product, itemsOne, itemsTwo, itemsThree, itemsFour, itemsFive, displayOne, displayTwo, displayThree}[0]`;
-
-  const headphone = await sanityFetch<SanityDocument>({
-    query: HEADPHONE_QUERY,
-    params: { slug },
+export const getStaticPaths: GetStaticPaths = async () => {
+  const HEADPHONES_QUERY = '*[_type == "headphones"]{ "slug": slug.current }';
+  const headphones = await sanityFetch<{ slug: string }[]>({
+    query: HEADPHONES_QUERY,
   });
 
-  return {
-    props: {
-      headphone,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  const HEADPHONE_SLUGS_QUERY = `*[_type == "headphones"].slug.current`;
-  const headphoneSlugs = await sanityFetch<string[]>({
-    query: HEADPHONE_SLUGS_QUERY,
-  });
-
-  const paths = headphoneSlugs.map((slug) => ({
-    params: { slug },
+  const paths = headphones.map((headphone) => ({
+    params: { slug: headphone.slug },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
-}
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string };
+
+  return {
+    props: {
+      slug,
+      key: slug,
+    },
+  };
+};

@@ -6,8 +6,7 @@ export default function Layout({ children }: any) {
   return (
     <>
       <Head>
-        {/* <title>{children.props.metadata.title}</title> */}
-        <title>Audiophile | Home</title>
+        <title>Audiophile</title>
       </Head>
       <NavBar />
       {children}
