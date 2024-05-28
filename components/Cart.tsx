@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import Button from "./Button";
 import CartItem from "./CartItems";
 import { useProvider } from "@/context/provider";
+import { useRouter } from "next/router";
 
 type PositionType = {
   positionClass: ReactNode;
@@ -9,6 +10,7 @@ type PositionType = {
 
 export default function Cart({ positionClass }: PositionType) {
   const { cartItems, clearCart } = useProvider();
+  const router = useRouter();
 
   const handleCartClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -26,17 +28,25 @@ export default function Cart({ positionClass }: PositionType) {
               Remove all
             </button>
           </div>
-          <CartItem />
-          <Button
-            bgColor="bg-colorOne"
-            textColor="text-white"
-            line=""
-            lineWidth=""
-            width="w-full"
-            onClick={() => console.log("hi")}
-          >
-            checkout
-          </Button>
+          {cartNumber === 0 ? (
+            <p className="font-bold mt-40">
+              You do not have anything in your cart yet
+            </p>
+          ) : (
+            <CartItem />
+          )}
+          {cartNumber !== 0 && (
+            <Button
+              bgColor="bg-colorOne"
+              textColor="text-white"
+              line=""
+              lineWidth=""
+              width="w-full"
+              onClick={() => router.push("/checkout")}
+            >
+              checkout
+            </Button>
+          )}
         </main>
       </div>
     </div>

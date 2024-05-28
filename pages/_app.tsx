@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <AppProvider>
       <main className={`${manrope.variable} font-manrope`}>
         <Layout>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
         </Layout>
       </main>
     </AppProvider>

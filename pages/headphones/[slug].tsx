@@ -18,6 +18,7 @@ import earphonesImg from "/public/images/shared/desktop/image-category-thumbnail
 import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
+import Example from "@/components/BarLoader";
 
 interface Headphone {
   name: string;
@@ -79,7 +80,7 @@ export default function HeadphonePage() {
     { label: "1x", value: headphone?.itemsFive },
   ];
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Example />;
   if (error) return <p>Error: {error}</p>;
   const handleGoBack = () => {
     router.back();
@@ -475,7 +476,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: true,
   };
 };
 

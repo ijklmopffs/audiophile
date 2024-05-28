@@ -17,6 +17,7 @@ import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 import { useProvider } from "@/context/provider";
+import Example from "@/components/BarLoader";
 
 interface Earphone {
   name: string;
@@ -78,7 +79,7 @@ export default function EarphonePage() {
     { label: "1x", value: earphone?.itemsFive },
   ];
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Example />;
   if (error) return <p>Error: {error}</p>;
   const handleGoBack = () => {
     router.back();

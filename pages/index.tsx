@@ -20,7 +20,6 @@ import earphonesTablet from "/public/images/home/tablet/image-earphones-yx1.jpg"
 import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
-import Cart from "@/components/Cart";
 
 export default function Home() {
   const router = useRouter();

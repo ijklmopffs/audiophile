@@ -18,6 +18,7 @@ import bestGear from "/public/images/shared/desktop/image-best-gear.jpg";
 import bestGearMobile from "/public/images/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 import { useProvider } from "@/context/provider";
+import Example from "@/components/BarLoader";
 
 interface Speaker {
   name: string;
@@ -79,7 +80,7 @@ export default function SpeakerPage() {
     { label: "1x", value: speaker?.itemsFive },
   ];
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Example />;
   if (error) return <p>Error: {error}</p>;
   const handleGoBack = () => {
     router.back();

@@ -100,9 +100,7 @@ export const AppProvider = ({ children }: any) => {
   const incrementQuantity = (slug: string) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.slug === slug && item.quantity > 1
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+        item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
   };

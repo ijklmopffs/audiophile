@@ -4,21 +4,15 @@ import addCommaToNumber from "@/helpers/convert";
 
 export default function CartItem() {
   const { cartItems, decrementQuantity, incrementQuantity } = useProvider();
+  const cartNumber = cartItems.length;
 
-  console.log(cartItems);
-
-  const itemSlugs = cartItems.map((item) => item.slug);
-  const stringSlug = itemSlugs.join("");
-
-  const handleDecrementQuantity = () => {
-    decrementQuantity(stringSlug);
-  };
-  const handleIncrementQuantity = () => {
-    incrementQuantity(stringSlug);
+  const handleDecrementQuantity = (slug: string) => {
+    decrementQuantity(slug);
   };
 
-  console.log(itemSlugs);
-  console.log(stringSlug);
+  const handleIncrementQuantity = (slug: string) => {
+    incrementQuantity(slug);
+  };
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -27,8 +21,8 @@ export default function CartItem() {
 
   return (
     <>
-      {cartItems.map((item, index) => (
-        <div key={index} className="flex items-center justify-between my-4">
+      {cartItems.map((item) => (
+        <div key={item.slug} className="flex items-center justify-between my-6">
           <img
             src={urlFor(item.product)}
             alt={item.id}
@@ -41,19 +35,25 @@ export default function CartItem() {
             </p>
           </div>
           <div className="flex items-center gap-5 bg-colorFour px-4 py-2">
-            <button onClick={handleDecrementQuantity}>-</button>
+            <button onClick={() => handleDecrementQuantity(item.slug)}>
+              -
+            </button>
             <p>{item.quantity}</p>
-            <button onClick={handleIncrementQuantity}>+</button>
+            <button onClick={() => handleIncrementQuantity(item.slug)}>
+              +
+            </button>
           </div>
         </div>
       ))}
 
-      <div className="flex items-center justify-between uppercase">
-        <h2 className="text-black/70">Total</h2>
-        <p className="font-bold text-lg tracking-widest">
-          ${addCommaToNumber(totalPrice)}
-        </p>
-      </div>
+      {cartNumber !== 0 && (
+        <div className="flex items-center justify-between uppercase my-6">
+          <h2 className="text-black/70">Total</h2>
+          <p className="font-bold text-lg tracking-widest">
+            ${addCommaToNumber(totalPrice)}
+          </p>
+        </div>
+      )}
     </>
   );
 }
