@@ -21,7 +21,7 @@ export default function Cart({ positionClass }: PositionType) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50">
       <div className={`absolute ${positionClass}`} onClick={handleCartClick}>
-        <main className="w-[265px] h-[360px] bg-white rounded-md p-8">
+        <main className="w-[265px] h-fit bg-white rounded-md p-8">
           <div className="flex items-center justify-between">
             <h1 className="uppercase font-bold text-lg">cart ({cartNumber})</h1>
             <button className="text-sm font-medium" onClick={clearCart}>
