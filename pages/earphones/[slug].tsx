@@ -44,7 +44,13 @@ export default function EarphonePage() {
   const [earphone, setEarphone] = useState<Earphone | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const { addToCart, eFigure, decEQty, incEQty, resetFigure } = useProvider();
+  const { addToCart } = useProvider();
+  const [figure, setFigure] = useState(1);
+
+  const incQty = () => setFigure((prevFigure) => prevFigure + 1);
+  const decQty = () => {
+    setFigure((prevFigure) => (prevFigure > 1 ? prevFigure - 1 : prevFigure));
+  };
 
   useEffect(() => {
     if (!slug) return;
@@ -68,7 +74,6 @@ export default function EarphonePage() {
     };
 
     fetchData();
-    resetFigure();
   }, [slug]);
 
   const items = [
@@ -86,7 +91,7 @@ export default function EarphonePage() {
   };
 
   const handleAddToCart = () => {
-    addToCart(earphone, eFigure);
+    addToCart(earphone, figure);
   };
 
   return (
@@ -119,9 +124,9 @@ export default function EarphonePage() {
           </p>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-5 bg-colorFour px-5 py-3">
-              <button onClick={decEQty}>-</button>
-              <p>{eFigure}</p>
-              <button onClick={incEQty}>+</button>
+              <button onClick={decQty}>-</button>
+              <p>{figure}</p>
+              <button onClick={incQty}>+</button>
             </div>
             <div>
               <Button

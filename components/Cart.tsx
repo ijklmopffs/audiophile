@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Button from "./Button";
 import CartItem from "./CartItems";
 import { useProvider } from "@/context/provider";
@@ -9,12 +9,22 @@ type PositionType = {
 };
 
 export default function Cart({ positionClass }: PositionType) {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
   const { cartItems, clearCart } = useProvider();
   const router = useRouter();
 
   const handleCartClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
+
+  const handleCheckout = () => {
+    router.push("/checkout");
+    setIsModalOpen(false);
+  };
+
+  if (!isModalOpen) {
+    return null;
+  }
 
   const cartNumber = cartItems.length;
 
@@ -29,7 +39,7 @@ export default function Cart({ positionClass }: PositionType) {
             </button>
           </div>
           {cartNumber === 0 ? (
-            <p className="font-bold mt-40">
+            <p className="font-bold mt-16">
               You do not have anything in your cart yet
             </p>
           ) : (
@@ -42,7 +52,7 @@ export default function Cart({ positionClass }: PositionType) {
               line=""
               lineWidth=""
               width="w-full"
-              onClick={() => router.push("/checkout")}
+              onClick={handleCheckout}
             >
               checkout
             </Button>

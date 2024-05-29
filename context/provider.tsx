@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 interface Headphone {
   slug: { current: string };
@@ -22,17 +22,7 @@ type CartState = {
 };
 
 type AppContextType = CartState & {
-  hFigure: number;
-  eFigure: number;
-  sFigure: number;
   addToCart: (headphone: Headphone, quantity: number) => void;
-  incHQty: () => void;
-  decHQty: () => void;
-  incEQty: () => void;
-  decEQty: () => void;
-  incSQty: () => void;
-  decSQty: () => void;
-  resetFigure: () => void;
   clearCart: () => void;
   decrementQuantity: (slug: string) => void;
   incrementQuantity: (slug: string) => void;
@@ -41,29 +31,19 @@ type AppContextType = CartState & {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: any) => {
-  const [cartItems, setCartItems] = useState<CartItems[]>([]);
-  const [hFigure, setHFigure] = useState(1);
-  const [eFigure, setEFigure] = useState(1);
-  const [sFigure, setSFigure] = useState(1);
+  const [cartItems, setCartItems] = useState<CartItems[]>(() => {
+    if (typeof window !== "undefined") {
+      const storedCartItems = localStorage.getItem("cartItems");
+      return storedCartItems ? JSON.parse(storedCartItems) : [];
+    }
+    return [];
+  });
 
-  const incHQty = () => setHFigure((prevHFigure) => prevHFigure + 1);
-  const decHQty = () => {
-    setHFigure((prevHFigure) =>
-      prevHFigure > 1 ? prevHFigure - 1 : prevHFigure
-    );
-  };
-  const incEQty = () => setEFigure((prevEFigure) => prevEFigure + 1);
-  const decEQty = () => {
-    setEFigure((prevEFigure) =>
-      prevEFigure > 1 ? prevEFigure - 1 : prevEFigure
-    );
-  };
-  const incSQty = () => setSFigure((prevSFigure) => prevSFigure + 1);
-  const decSQty = () => {
-    setSFigure((prevSFigure) =>
-      prevSFigure > 1 ? prevSFigure - 1 : prevSFigure
-    );
-  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
 
   const addToCart = (headphone: Headphone, quantity: number) => {
     const { slug, product, id, price } = headphone;
@@ -106,28 +86,13 @@ export const AppProvider = ({ children }: any) => {
   };
 
   const clearCart = () => setCartItems([]);
-  const resetFigure = () => {
-    setEFigure(1);
-    setHFigure(1);
-    setSFigure(1);
-  };
 
   return (
     <AppContext.Provider
       value={{
         cartItems,
         addToCart,
-        hFigure,
-        decHQty,
-        incHQty,
-        eFigure,
-        decEQty,
-        incEQty,
-        sFigure,
-        decSQty,
-        incSQty,
         clearCart,
-        resetFigure,
         decrementQuantity,
         incrementQuantity,
       }}
