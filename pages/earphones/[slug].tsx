@@ -91,7 +91,9 @@ export default function EarphonePage() {
   };
 
   const handleAddToCart = () => {
-    addToCart(earphone, figure);
+    if (earphone !== null) {
+      addToCart(earphone, figure);
+    }
   };
 
   return (

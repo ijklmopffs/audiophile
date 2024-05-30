@@ -92,7 +92,9 @@ export default function SpeakerPage() {
   };
 
   const handleAddToCart = () => {
-    addToCart(speaker, figure);
+    if (speaker !== null) {
+      addToCart(speaker, figure);
+    }
   };
 
   return (

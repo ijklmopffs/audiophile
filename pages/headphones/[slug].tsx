@@ -92,7 +92,9 @@ export default function HeadphonePage() {
   };
 
   const handleAddToCart = () => {
-    addToCart(headphone, figure);
+    if (headphone !== null) {
+      addToCart(headphone, figure);
+    }
   };
 
   return (
