@@ -12,7 +12,7 @@ const ProductItem = ({
   url: string;
 }) => {
   return (
-    <div className="bg-colorThree uppercase w-80 md:w-60 lg:w-80 h-36 flex flex-col items-center rounded-md">
+    <div className="bg-colorThree uppercase w-60 md:w-60 lg:w-80 h-36 flex flex-col items-center rounded-md">
       <Image
         src={imageSrc}
         alt={`${title} indicator`}

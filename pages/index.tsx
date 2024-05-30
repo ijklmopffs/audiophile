@@ -38,7 +38,7 @@ export default function Home() {
               <h1 className="font-bold text-5xl uppercase">
                 xx99 mark ii headphones
               </h1>
-              <p className="opacity-50 text-sm \">
+              <p className="opacity-50 text-sm">
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>

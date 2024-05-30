@@ -44,8 +44,8 @@ export default function NavBar() {
         <div
           className={
             nav
-              ? `gap-20 absolute flex flex-col md:flex-row lg:hidden top-16 left-16 md:left-10 z-10 bg-white shadow-2xl w-96 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
-              : `gap-20 absolute flex flex-col md:flex-row lg:hidden top-[-1200%] left-16 md:left-10 z-10 bg-white shadow-2xl w-96 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
+              ? `gap-20 absolute flex flex-col md:flex-row lg:hidden top-16 left-[19%] sm:left-[20%] left md:left-10 z-10 bg-white shadow-2xl w-80 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
+              : `gap-20 absolute flex flex-col md:flex-row lg:hidden top-[-1200%] left-[19%] sm:left-[20%] md:left-10 z-10 bg-white shadow-2xl w-80 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
           }
         >
           <ProductItem
