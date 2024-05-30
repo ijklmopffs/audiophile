@@ -8,6 +8,18 @@ import addCommaToNumber from "@/helpers/convert";
 import iconCod from "/public/images/checkout/icon-cash-on-delivery.svg";
 import iconDone from "/public/images/checkout/icon-order-confirmation.svg";
 
+interface Errors {
+  name?: string;
+  email?: string;
+  number?: string;
+  address?: string;
+  zip?: string;
+  city?: string;
+  country?: string;
+  money_number?: string;
+  pin_number?: string;
+}
+
 export default function Checkout() {
   const router = useRouter();
   const { cartItems } = useProvider();
@@ -25,7 +37,7 @@ export default function Checkout() {
     pin_number: "",
   });
 
-  const [formErrors, setFormErrors] = useState({
+  const [formErrors, setFormErrors] = useState<Errors>({
     name: "",
     email: "",
     number: "",
@@ -46,14 +58,14 @@ export default function Checkout() {
     setSelectedMethod(e.target.value);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const errors = {};
+    const errors: Errors = {};
 
     if (formData.name.trim() === "") {
       errors.name = "Name is required";
