@@ -118,20 +118,24 @@ export default function HeadphonePage() {
               new product
             </span>
           )}
-          <h1 className="font-bold text-3xl md:text-4xl w-48 md:w-auto">
+          <h1 className="font-bold text-3xl md:text-4xl w-48 md:w-auto text-black">
             {headphone.name}
           </h1>
           <p className="font-medium text-sm text-black/70">
             {headphone.details}
           </p>
-          <p className="font-bold text-lg tracking-widest">
+          <p className="font-bold text-lg tracking-widest text-black">
             ${addCommaToNumber(headphone.price)}
           </p>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-5 bg-colorFour px-5 py-3">
-              <button onClick={decQty}>-</button>
-              <p>{figure}</p>
-              <button onClick={incQty}>+</button>
+              <button onClick={decQty} className="text-black">
+                -
+              </button>
+              <p className="text-black">{figure}</p>
+              <button onClick={incQty} className="text-black">
+                +
+              </button>
             </div>
             <div>
               <Button
@@ -151,7 +155,9 @@ export default function HeadphonePage() {
 
       <section className="my-20 md:my-40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
         <div>
-          <h2 className="font-bold text-3xl uppercase my-5">Features</h2>
+          <h2 className="font-bold text-3xl uppercase my-5 text-black">
+            Features
+          </h2>
           <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem]">
             {headphone.featureOne}
           </p>
@@ -160,7 +166,9 @@ export default function HeadphonePage() {
           </p>
         </div>
         <div>
-          <h2 className="font-bold text-3xl uppercase my-5">in the box</h2>
+          <h2 className="font-bold text-3xl uppercase my-5 text-black">
+            in the box
+          </h2>
           {items.map(
             (item, index) =>
               item.value && (
@@ -211,7 +219,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark i</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark i</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -233,7 +241,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx59</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">xx59</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -253,7 +261,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">zx9 speaker</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">zx9 speaker</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -283,7 +291,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark ii</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark ii</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -305,7 +313,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx59</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">xx59</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -325,7 +333,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">zx9 speaker</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">zx9 speaker</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -355,7 +363,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark ii</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark ii</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -377,7 +385,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">xx99 mark i</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark i</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -399,7 +407,7 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase">zx9 speaker</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">zx9 speaker</h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"

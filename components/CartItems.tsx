@@ -29,17 +29,25 @@ export default function CartItem() {
             className="w-16 h-16 rounded-md"
           />
           <div>
-            <h1 className="font-bold uppercase text-sm">{item.id}</h1>
+            <h1 className="font-bold uppercase text-sm text-black">
+              {item.id}
+            </h1>
             <p className="font-bold text-xs tracking-widest text-black/50">
               ${item.price}
             </p>
           </div>
           <div className="flex items-center gap-5 bg-colorFour px-4 py-2">
-            <button onClick={() => handleDecrementQuantity(item.slug)}>
+            <button
+              onClick={() => handleDecrementQuantity(item.slug)}
+              className="text-black"
+            >
               -
             </button>
-            <p>{item.quantity}</p>
-            <button onClick={() => handleIncrementQuantity(item.slug)}>
+            <p className="text-black">{item.quantity}</p>
+            <button
+              onClick={() => handleIncrementQuantity(item.slug)}
+              className="text-black"
+            >
               +
             </button>
           </div>
@@ -49,7 +57,7 @@ export default function CartItem() {
       {cartNumber !== 0 && (
         <div className="flex items-center justify-between uppercase my-6">
           <h2 className="text-black/70">Total</h2>
-          <p className="font-bold text-lg tracking-widest">
+          <p className="font-bold text-lg tracking-widest text-black">
             ${addCommaToNumber(totalPrice)}
           </p>
         </div>

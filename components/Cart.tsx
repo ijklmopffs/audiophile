@@ -33,13 +33,18 @@ export default function Cart({ positionClass }: PositionType) {
       <div className={`absolute ${positionClass}`} onClick={handleCartClick}>
         <main className="w-[265px] h-fit bg-white rounded-md p-8">
           <div className="flex items-center justify-between">
-            <h1 className="uppercase font-bold text-lg">cart ({cartNumber})</h1>
-            <button className="text-sm font-medium" onClick={clearCart}>
+            <h1 className="uppercase font-bold text-lg text-black">
+              cart ({cartNumber})
+            </h1>
+            <button
+              className="text-sm font-medium text-black/70"
+              onClick={clearCart}
+            >
               Remove all
             </button>
           </div>
           {cartNumber === 0 ? (
-            <p className="font-bold mt-16">
+            <p className="font-bold mt-16 text-black">
               You do not have anything in your cart yet
             </p>
           ) : (

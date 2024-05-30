@@ -18,6 +18,7 @@ interface Errors {
   country?: string;
   money_number?: string;
   pin_number?: string;
+  selectedMethod?: string;
 }
 
 export default function Checkout() {
@@ -36,6 +37,9 @@ export default function Checkout() {
     money_number: "",
     pin_number: "",
   });
+  const [selectedMethodError, setSelectedMethodError] = useState<string | null>(
+    null
+  );
 
   const [formErrors, setFormErrors] = useState<Errors>({});
 
@@ -84,6 +88,12 @@ export default function Checkout() {
       errors.country = "This field is required";
     }
 
+    if (selectedMethod === null) {
+      errors.selectedMethod = "Please select a method";
+      setSelectedMethodError("Please select a method");
+    } else {
+      setSelectedMethodError(null);
+    }
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
     } else {
@@ -126,7 +136,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="name"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       Name
                     </label>
@@ -147,7 +157,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="email"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       Email Address
                     </label>
@@ -168,7 +178,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="number"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       Phone Number
                     </label>
@@ -197,7 +207,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="address"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       Address
                     </label>
@@ -218,7 +228,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="zip"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       ZIP Code
                     </label>
@@ -239,7 +249,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="city"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       City
                     </label>
@@ -260,7 +270,7 @@ export default function Checkout() {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="country"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       Country
                     </label>
@@ -289,14 +299,16 @@ export default function Checkout() {
                   <div className="flex flex-col md:flex-row justify-between gap-2 w-[33rem] md:w-full lg:w-[33rem]">
                     <label
                       htmlFor="method"
-                      className="font-bold text-lg lg:text-xs"
+                      className="font-bold text-lg lg:text-xs text-black"
                     >
                       Payment Method
                     </label>
                     <div>
                       <div
                         className={
-                          "w-96 md:w-64 rounded-md border-2 p-3 flex items-center gap-2 mb-4"
+                          selectedMethodError
+                            ? "w-96 md:w-64 rounded-md border-2 border-[#cd2c2c] p-3 flex items-center gap-2 mb-4"
+                            : "w-96 md:w-64 rounded-md border-2 p-3 flex items-center gap-2 mb-4"
                         }
                       >
                         <input
@@ -307,9 +319,15 @@ export default function Checkout() {
                           className="accent-colorOne"
                           onChange={handleMethodChange}
                         />
-                        <p className="font-bold text-xs">e-Money</p>
+                        <p className="font-bold text-xs text-black">e-Money</p>
                       </div>
-                      <div className="w-96 md:w-64 rounded-md border-2 p-3 flex items-center gap-2">
+                      <div
+                        className={
+                          selectedMethodError
+                            ? "w-96 md:w-64 rounded-md border-2 border-[#cd2c2c] p-3 flex items-center gap-2"
+                            : "w-96 md:w-64 rounded-md border-2 p-3 flex items-center gap-2"
+                        }
+                      >
                         <input
                           type="radio"
                           id="method"
@@ -318,7 +336,9 @@ export default function Checkout() {
                           className="accent-colorOne"
                           onChange={handleMethodChange}
                         />
-                        <p className="font-bold text-xs">Cash on Delivery</p>
+                        <p className="font-bold text-xs text-black">
+                          Cash on Delivery
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -327,7 +347,7 @@ export default function Checkout() {
                       <div className="flex flex-col gap-2">
                         <label
                           htmlFor="money-number"
-                          className="font-bold text-lg lg:text-xs"
+                          className="font-bold text-lg lg:text-xs text-black"
                         >
                           e-Money Number
                         </label>
@@ -344,7 +364,7 @@ export default function Checkout() {
                       <div className="flex flex-col gap-2">
                         <label
                           htmlFor="number"
-                          className="font-bold text-lg lg:text-xs"
+                          className="font-bold text-lg lg:text-xs text-black"
                         >
                           e-Money PIN
                         </label>
@@ -363,7 +383,7 @@ export default function Checkout() {
                   {selectedMethod === "cod" && (
                     <div className="flex items-center gap-8">
                       <Image src={iconCod} alt="cod" />
-                      <p className="font-medium text-sm">
+                      <p className="font-medium text-sm text-black/70">
                         The ‘Cash on Delivery’ option enables you to pay in cash
                         when our delivery courier arrives at your residence.
                         Just make sure your address is correct so that your
@@ -390,7 +410,7 @@ export default function Checkout() {
                         className="w-16 h-16 rounded-md"
                       />
                       <div>
-                        <h3 className="uppercase font-bold text-sm">
+                        <h3 className="uppercase font-bold text-sm text-black">
                           {item.id}
                         </h3>
                         <p className="font-bold text-xs text-black/70">
@@ -409,7 +429,7 @@ export default function Checkout() {
                 <p className="uppercase font-medium text-sm text-black/70">
                   total
                 </p>
-                <p className="font-bold text-lg">
+                <p className="font-bold text-lg text-black">
                   ${addCommaToNumber(totalPrice)}
                 </p>
               </div>
@@ -417,13 +437,15 @@ export default function Checkout() {
                 <p className="uppercase font-medium text-sm text-black/70">
                   shipping
                 </p>
-                <p className="font-bold text-lg">$50</p>
+                <p className="font-bold text-lg text-black">$50</p>
               </div>
               <div className="flex items-center justify-between">
                 <p className="uppercase font-medium text-sm text-black/70">
                   vat (included)
                 </p>
-                <p className="font-bold text-lg">${addCommaToNumber(vat)}</p>
+                <p className="font-bold text-lg text-black">
+                  ${addCommaToNumber(vat)}
+                </p>
               </div>
 
               <div className="flex items-center justify-between my-3">
@@ -455,10 +477,10 @@ export default function Checkout() {
           <main className="w-[360px] md:w-[400px] h-fit bg-white rounded-md p-8">
             <Image src={iconDone} alt="icon" className="w-16 mb-5" />
             <div className="space-y-5">
-              <h1 className="uppercase font-bold text-3xl w-60">
+              <h1 className="uppercase font-bold text-3xl w-60 text-black">
                 Thank you for your order
               </h1>
-              <p className="font-medium text-sm">
+              <p className="font-medium text-sm text-black/70">
                 You will receive an email confirmation shortly.
               </p>
             </div>
@@ -476,7 +498,7 @@ export default function Checkout() {
                         className="w-12 h-12 rounded-md"
                       />
                       <div>
-                        <h3 className="uppercase font-bold text-sm">
+                        <h3 className="uppercase font-bold text-sm text-black">
                           {cartItems[0].id}
                         </h3>
                         <p className="font-bold text-xs text-black/70">
@@ -493,7 +515,7 @@ export default function Checkout() {
                 {cartItems.length > 1 && (
                   <>
                     <hr />
-                    <p className="text-xs mt-2 text-center">
+                    <p className="text-xs mt-2 text-center text-black/70">
                       and {cartItems.length - 1} other item(s)
                     </p>
                   </>
