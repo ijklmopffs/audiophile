@@ -23,7 +23,7 @@ interface Errors {
 
 export default function Checkout() {
   const router = useRouter();
-  const { cartItems } = useProvider();
+  const { cartItems, clearCart } = useProvider();
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
   const [back, setBack] = useState(false);
   const [formData, setFormData] = useState({
@@ -46,6 +46,7 @@ export default function Checkout() {
   const handleCheckout = () => {
     router.push("/");
     setBack(false);
+    clearCart();
   };
 
   const handleMethodChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,8 +90,8 @@ export default function Checkout() {
     }
 
     if (selectedMethod === null) {
-      errors.selectedMethod = "Please select a method";
-      setSelectedMethodError("Please select a method");
+      errors.selectedMethod = "Please select a payment method";
+      setSelectedMethodError("Please select a payment method");
     } else {
       setSelectedMethodError(null);
     }
@@ -304,6 +305,9 @@ export default function Checkout() {
                       Payment Method
                     </label>
                     <div>
+                      <p className="text-sm text-[#cd2c2c] my-1">
+                        {selectedMethodError}
+                      </p>
                       <div
                         className={
                           selectedMethodError
@@ -484,8 +488,8 @@ export default function Checkout() {
                 You will receive an email confirmation shortly.
               </p>
             </div>
-            <div className="rounded-md rounded-tr-none rounded-br-none my-10 flex items-center">
-              <div className="w-[200px] h-[80px] bg-[#f1f1f1] p-5 rounded-md">
+            <div className="rounded-tl-md rounded-tr-md md:rounded-md md:rounded-tr-none md:rounded-br-none my-10 flex flex-col md:flex-row items-center">
+              <div className="w-[200px] h-[100px] bg-[#f1f1f1] p-5 rounded-md">
                 {cartItems.length > 0 && (
                   <div
                     key={cartItems[0].slug}
@@ -521,7 +525,7 @@ export default function Checkout() {
                   </>
                 )}
               </div>
-              <div className="bg-black p-5 rounded-md w-[200px] h-[80px] rounded-tl-none rounded-bl-none">
+              <div className="bg-black p-5 rounded-bl-md rounded-br-md md:rounded-md w-[200px] h-[100px] md:rounded-tl-none md:rounded-bl-none">
                 <h2 className="uppercase text-sm text-white/70 font-medium">
                   grand total
                 </h2>
