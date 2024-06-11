@@ -23,7 +23,7 @@ const ProductItem = ({
       <p className="font-bold text-lg text-black/70">{title}</p>
       <Link
         href={url}
-        className="font-bold text-xs flex items-center gap-2 text-black/70"
+        className="font-bold text-sm flex items-center gap-2 text-black/70 hover:text-colorOne"
       >
         shop
         <Image src={arrowRight} alt="direction" width={6} />

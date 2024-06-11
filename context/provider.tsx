@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useState, useContext, useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface Headphone {
   slug: { current: string };
@@ -64,6 +65,14 @@ export const AppProvider = ({ children }: any) => {
         ...prevItems,
         { slug: slugCurrent, product, id, price, quantity },
       ];
+    });
+    toast.success("Product Added!", {
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     });
   };
 
