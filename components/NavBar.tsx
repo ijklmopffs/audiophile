@@ -23,10 +23,12 @@ export default function NavBar() {
     setShowCart((prevState) => !prevState);
   };
 
+  const closeNav = () => setNav(false);
+
   return (
     <nav className={isActive ? "bg-black/90" : "bg-black"}>
       <div className="max-w-5xl m-auto p-4 flex items-center justify-between relative">
-        <div className="flex items-center w-[22rem] md:w-auto justify-between md:justify-normal gap-4">
+        <div className="flex items-center w-[71%] md:w-auto justify-between md:justify-normal gap-4">
           <button className="lg:hidden" onClick={toggleState}>
             <Image src={hicon} alt="" />
           </button>
@@ -44,25 +46,43 @@ export default function NavBar() {
         <div
           className={
             nav
-              ? `gap-20 absolute flex flex-col md:flex-row lg:hidden top-16 left-[19%] sm:left-[20%] left md:left-10 z-10 bg-white shadow-2xl w-80 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
-              : `gap-20 absolute flex flex-col md:flex-row lg:hidden top-[-1200%] left-[19%] sm:left-[20%] md:left-10 z-10 bg-white shadow-2xl w-80 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
+              ? `gap-20 absolute flex flex-col md:flex-row lg:hidden top-16 left-1/2 transform -translate-x-1/2 md:left-10 z-10 bg-white shadow-2xl w-80 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
+              : `gap-20 absolute flex flex-col md:flex-row lg:hidden top-[-1200%] left-1/2 transform -translate-x-1/2 md:left-10 z-10 bg-white shadow-2xl w-80 md:w-[90%] items-center justify-center p-10 md:p-20 transition-all ease-in-out duration-700`
           }
         >
-          <ProductItem
-            imageSrc={headphoneImg}
-            title="Headphones"
-            url={"/headphones"}
-          />
-          <ProductItem
-            imageSrc={speakerImg}
-            title="Speakers"
-            url={"/speakers"}
-          />
-          <ProductItem
-            imageSrc={earphonesImg}
-            title="Earphones"
-            url={"/earphones"}
-          />
+          <Link
+            href="/headphones"
+            onClick={closeNav}
+            className="hover:text-colorOne"
+          >
+            <ProductItem
+              imageSrc={headphoneImg}
+              title="Headphones"
+              url="/headphones"
+            />
+          </Link>
+          <Link
+            href="/speakers"
+            onClick={closeNav}
+            className="hover:text-colorOne"
+          >
+            <ProductItem
+              imageSrc={speakerImg}
+              title="Speakers"
+              url="/speakers"
+            />
+          </Link>
+          <Link
+            href="/earphones"
+            onClick={closeNav}
+            className="hover:text-colorOne"
+          >
+            <ProductItem
+              imageSrc={earphonesImg}
+              title="Earphones"
+              url="/earphones"
+            />
+          </Link>
         </div>
 
         <div className="text-white space-x-4 font-bold text-xs hidden lg:block">
@@ -89,7 +109,7 @@ export default function NavBar() {
           />
           {showCart && (
             <Cart
-              positionClass={`top-24 right-20 md:right-4 lg:right-[30rem]`}
+              positionClass={`top-24 right-4 md:right-4 lg:right-[30rem]`}
             />
           )}
         </button>

@@ -100,7 +100,7 @@ export default function HeadphonePage() {
   return (
     <main className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-8">
       <button
-        className="my-10 font-medium text-sm text-black"
+        className="my-10 font-medium text-sm text-black p-2"
         onClick={handleGoBack}
       >
         Go back
@@ -109,10 +109,10 @@ export default function HeadphonePage() {
         <img
           src={urlFor(headphone.product)}
           alt=""
-          className="w-[24rem] h-[24rem] md:w-[34rem] md:h-[35rem] rounded-md"
+          className="w-[21rem] h-[24rem] md:w-[34rem] md:h-[35rem] rounded-md"
         />
 
-        <div className="space-y-5 w-[25rem]">
+        <div className="space-y-5 w-80 md:w-[25rem]">
           {slug === "xx99-mark-ii-headphones" && (
             <span className="uppercase text-colorOne tracking-[.5em] font-normal text-sm">
               new product
@@ -154,18 +154,18 @@ export default function HeadphonePage() {
       </section>
 
       <section className="my-20 md:my-40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
-        <div>
+        <div className="p-2">
           <h2 className="font-bold text-3xl uppercase my-5 text-black">
             Features
           </h2>
-          <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem]">
+          <p className="font-medium text-sm text-black/70 w-[21rem] md:w-[30rem]">
             {headphone.featureOne}
           </p>
-          <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem] mt-10">
+          <p className="font-medium text-sm text-black/70 w-[21rem] md:w-[30rem] mt-10">
             {headphone.featureTwo}
           </p>
         </div>
-        <div>
+        <div className="p-2">
           <h2 className="font-bold text-3xl uppercase my-5 text-black">
             in the box
           </h2>
@@ -190,18 +190,18 @@ export default function HeadphonePage() {
           <img
             src={urlFor(headphone.displayOne)}
             alt={headphone.name}
-            className="rounded-md h-[17rem]"
+            className="rounded-md h-[17rem] w-4/5 md:w-auto mx-auto md:mx-0"
           />
           <img
             src={urlFor(headphone.displayTwo)}
             alt={headphone.name}
-            className="rounded-md h-[17rem]"
+            className="rounded-md h-[17rem] w-4/5 md:w-auto mx-auto md:mx-0"
           />
         </div>
         <img
           src={urlFor(headphone.displayThree)}
           alt={headphone.name}
-          className="rounded-md h-[35rem] w-[34rem]"
+          className="rounded-md h-[35rem] md:w-[34rem] w-[90%] mx-auto md:mx-0"
         />
       </section>
 
@@ -219,7 +219,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark i</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                xx99 mark i
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -261,7 +263,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">zx9 speaker</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                zx9 speaker
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -291,7 +295,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark ii</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                xx99 mark ii
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -333,7 +339,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">zx9 speaker</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                zx9 speaker
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -363,7 +371,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark ii</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                xx99 mark ii
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -385,7 +395,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">xx99 mark i</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                xx99 mark i
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -407,7 +419,9 @@ export default function HeadphonePage() {
                 height={200}
                 className="rounded-md"
               />
-              <h3 className="font-bold text-2xl uppercase text-black">zx9 speaker</h3>
+              <h3 className="font-bold text-2xl uppercase text-black">
+                zx9 speaker
+              </h3>
               <Button
                 bgColor="bg-colorOne"
                 textColor="text-white"
@@ -445,11 +459,11 @@ export default function HeadphonePage() {
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
-          <h2 className="uppercase font-bold text-4xl text-black">
+          <h2 className="uppercase font-bold text-3xl md:text-4xl text-black">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
           </h2>
-          <p className="font-medium text-sm opacity-50 text-black/70">
+          <p className="font-medium text-sm opacity-50 text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
@@ -467,7 +481,7 @@ export default function HeadphonePage() {
         <Image
           src={bestGearMobile}
           alt="showcasing best gear"
-          className="rounded-md block md:hidden"
+          className="rounded-md block md:hidden w-4/5"
         />
         <Image
           src={bestGearTablet}

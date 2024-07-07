@@ -100,7 +100,7 @@ export default function SpeakerPage() {
   return (
     <main className="max-w-md md:max-w-4xl lg:max-w-5xl mx-auto my-8">
       <button
-        className="my-10 font-medium text-sm text-black"
+        className="my-10 font-medium text-sm text-black p-2"
         onClick={handleGoBack}
       >
         Go back
@@ -109,10 +109,10 @@ export default function SpeakerPage() {
         <img
           src={urlFor(speaker.product)}
           alt=""
-          className="w-[24rem] h-[24rem] md:w-[34rem] md:h-[35rem] rounded-md"
+          className="w-[21rem] h-[24rem] md:w-[34rem] md:h-[35rem] rounded-md"
         />
 
-        <div className="space-y-5 w-[25rem]">
+        <div className="space-y-5 w-80 md:w-[25rem]">
           {slug === "zx9-speaker" && (
             <span className="uppercase text-colorOne tracking-[.5em] font-normal text-sm">
               new product
@@ -152,18 +152,18 @@ export default function SpeakerPage() {
       </section>
 
       <section className="my-20 md:my-40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0">
-        <div>
+        <div className="p-2">
           <h2 className="font-bold text-3xl uppercase my-5 text-black">
             Features
           </h2>
-          <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem]">
+          <p className="font-medium text-sm text-black/70 w-[21rem] md:w-[30rem]">
             {speaker.featureOne}
           </p>
-          <p className="font-medium text-sm text-black/70 w-[28rem] md:w-[30rem] mt-10">
+          <p className="font-medium text-sm text-black/70 w-[21rem] md:w-[30rem] mt-10">
             {speaker.featureTwo}
           </p>
         </div>
-        <div>
+        <div className="p-2">
           <h2 className="font-bold text-3xl uppercase my-5 text-black">
             in the box
           </h2>
@@ -188,24 +188,24 @@ export default function SpeakerPage() {
           <img
             src={urlFor(speaker.displayOne)}
             alt={speaker.name}
-            className="rounded-md h-[17rem]"
+            className="rounded-md h-[17rem] w-4/5 md:w-auto mx-auto md:mx-0"
           />
           <img
             src={urlFor(speaker.displayTwo)}
             alt={speaker.name}
-            className="rounded-md h-[17rem]"
+            className="rounded-md h-[17rem] w-4/5 md:w-auto mx-auto md:mx-0"
           />
         </div>
         <img
           src={urlFor(speaker.displayThree)}
           alt={speaker.name}
-          className="rounded-md h-[35rem] w-[34rem]"
+          className="rounded-md h-[35rem] md:w-[34rem] w-[90%] mx-auto md:mx-0"
         />
       </section>
 
       {slug === "zx9-speaker" && (
         <>
-          <h3 className="text-center uppercase font-bold text-4xl mb-8">
+          <h3 className="text-center uppercase font-bold text-3xl md:text-4xl mb-8">
             you may also like
           </h3>
 
@@ -282,7 +282,7 @@ export default function SpeakerPage() {
 
       {slug === "zx7-speaker" && (
         <>
-          <h3 className="text-center uppercase font-bold text-4xl mb-8">
+          <h3 className="text-center uppercase font-bold text-3xl md:text-4xl mb-8">
             you may also like
           </h3>
           <section className="flex flex-col gap-16 md:gap-0 md:flex-row items-center justify-between">
@@ -378,11 +378,11 @@ export default function SpeakerPage() {
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
-          <h2 className="uppercase font-bold text-4xl text-black">
+          <h2 className="uppercase font-bold text-3xl md:text-4xl text-black">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
           </h2>
-          <p className="font-medium text-sm opacity-50 text-black/70">
+          <p className="font-medium text-sm opacity-50 text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
@@ -400,7 +400,7 @@ export default function SpeakerPage() {
         <Image
           src={bestGearMobile}
           alt="showcasing best gear"
-          className="rounded-md block md:hidden"
+          className="rounded-md block md:hidden w-4/5"
         />
         <Image
           src={bestGearTablet}

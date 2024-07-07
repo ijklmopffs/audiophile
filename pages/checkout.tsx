@@ -127,7 +127,7 @@ export default function Checkout() {
           </button>
 
           <section className="flex flex-col lg:flex-row gap-4">
-            <div className="max-w-xl md:max-w-5xl lg:max-w-xl bg-white rounded-md p-5">
+            <div className="max-w-xl md:max-w-5xl lg:max-w-xl bg-white rounded-md pl-3 p-5">
               <h1 className="uppercase font-bold text-3xl">checkout</h1>
               <section className="my-10">
                 <h2 className="uppercase text-colorOne text-xs tracking-wider">
@@ -149,8 +149,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.name
-                          ? "w-96 md:w-64 rounded-md border-[#CD2C2C] border-2 p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 rounded-md border-[#CD2C2C] border-2 p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="Alexei Ward"
                     />
@@ -170,8 +170,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.email
-                          ? "w-96 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="alexei@mail.com"
                     />
@@ -191,8 +191,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.number
-                          ? "w-96 md:w-64 rounded-md border-2 border-[#Cd2C2C] p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 rounded-md border-2 border-[#Cd2C2C] p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="+1 202-555-0136"
                     />
@@ -220,8 +220,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.address
-                          ? "w-96 md:w-64 lg:w-[33rem] rounded-md border-[#CD2C2C] border-2 p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 lg:w-[33rem] rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 lg:w-[33rem] rounded-md border-[#CD2C2C] border-2 p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 lg:w-[33rem] rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="1137 Williams Avenue"
                     />
@@ -241,8 +241,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.zip
-                          ? "w-96 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="10001"
                     />
@@ -262,8 +262,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.city
-                          ? "w-96 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="New York"
                     />
@@ -283,8 +283,8 @@ export default function Checkout() {
                       onChange={handleChange}
                       className={
                         formErrors.country
-                          ? "w-96 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
-                          : "w-96 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
+                          ? "w-80 md:w-64 rounded-md border-2 border-[#CD2C2C] p-3 font-bold text-xs focus:outline-none"
+                          : "w-80 md:w-64 rounded-md border-2 p-3 font-bold text-xs focus:outline-none"
                       }
                       placeholder="United States"
                     />
@@ -311,8 +311,8 @@ export default function Checkout() {
                       <div
                         className={
                           selectedMethodError
-                            ? "w-96 md:w-64 rounded-md border-2 border-[#cd2c2c] p-3 flex items-center gap-2 mb-4"
-                            : "w-96 md:w-64 rounded-md border-2 p-3 flex items-center gap-2 mb-4"
+                            ? "w-80 md:w-64 rounded-md border-2 border-[#cd2c2c] p-3 flex items-center gap-2 mb-4"
+                            : "w-80 md:w-64 rounded-md border-2 p-3 flex items-center gap-2 mb-4"
                         }
                       >
                         <input
@@ -328,8 +328,8 @@ export default function Checkout() {
                       <div
                         className={
                           selectedMethodError
-                            ? "w-96 md:w-64 rounded-md border-2 border-[#cd2c2c] p-3 flex items-center gap-2"
-                            : "w-96 md:w-64 rounded-md border-2 p-3 flex items-center gap-2"
+                            ? "w-80 md:w-64 rounded-md border-2 border-[#cd2c2c] p-3 flex items-center gap-2"
+                            : "w-80 md:w-64 rounded-md border-2 p-3 flex items-center gap-2"
                         }
                       >
                         <input
@@ -399,7 +399,7 @@ export default function Checkout() {
               </section>
             </div>
 
-            <div className="w-[28rem] md:w-[56rem] lg:w-96 bg-white rounded-md p-5 h-fit">
+            <div className="w-[21.5rem] md:w-[56rem] lg:w-96 bg-white rounded-md p-5 h-fit">
               <h2 className="uppercase font-bold text-3xl">summary</h2>
               <div>
                 {cartItems.map((item) => (

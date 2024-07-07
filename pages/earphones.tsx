@@ -47,10 +47,10 @@ export default function Earphones() {
               <span className="opacity-50 text-sm uppercase text-colorOne tracking-widest">
                 new product
               </span>
-              <h1 className="font-bold text-5xl uppercase text-black">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase text-black">
                 yx1 wireless earphones
               </h1>
-              <p className="text-sm text-black/70">
+              <p className="text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
                 Tailor your listening experience with bespoke dynamic drivers
                 from the new YX1 Wireless Earphones. Enjoy incredible
                 high-fidelity sound even in noisy environments with its active
@@ -93,11 +93,11 @@ export default function Earphones() {
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
-          <h2 className="uppercase font-bold text-4xl text-black">
+          <h2 className="uppercase font-bold text-3xl md:text-4xl text-black">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
           </h2>
-          <p className="font-medium text-sm text-black/70">
+          <p className="font-medium text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
@@ -115,7 +115,7 @@ export default function Earphones() {
         <Image
           src={bestGearMobile}
           alt="showcasing best gear"
-          className="rounded-md block md:hidden"
+          className="rounded-md block md:hidden w-4/5"
         />
         <Image
           src={bestGearTablet}

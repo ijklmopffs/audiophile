@@ -54,10 +54,10 @@ export default function Headphones() {
               <span className="opacity-50 text-sm uppercase text-colorOne tracking-widest">
                 new product
               </span>
-              <h1 className="font-bold text-5xl uppercase text-black">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase text-black">
                 xx99 mark ii headphones
               </h1>
-              <p className="text-sm text-black/70">
+              <p className="text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
                 The new XX99 Mark II headphones is the pinnacle of pristine
                 audio. It redefines your premium headphone experience by
                 reproducing the balanced depth and precision of studio-quality
@@ -102,10 +102,10 @@ export default function Headphones() {
           />
           <div>
             <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
-              <h1 className="font-bold text-5xl uppercase text-black">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase text-black">
                 xx99 mark i headphones
               </h1>
-              <p className="text-sm text-black/70">
+              <p className="text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
                 As the gold standard for headphones, the classic XX99 Mark I
                 offers detailed and accurate audio reproduction for audiophiles
                 mixing engineers, and music aficionados alike in studios and on
@@ -150,10 +150,10 @@ export default function Headphones() {
           />
           <div>
             <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
-              <h1 className="font-bold text-5xl uppercase text-black">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase text-black">
                 xx59 headphones
               </h1>
-              <p className="text-sm text-black/70">
+              <p className="text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
                 Enjoy your audio almost anywhere and customize it to your
                 specific tastes with the XX59 headphones. The stylish yet
                 durable versatile wireless headset is a brilliant companion at
@@ -196,11 +196,11 @@ export default function Headphones() {
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
-          <h2 className="uppercase font-bold text-4xl text-black">
+          <h2 className="uppercase font-bold text-3xl md:text-4xl text-black">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
           </h2>
-          <p className="font-medium text-sm text-black/70">
+          <p className="font-medium text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
@@ -218,7 +218,7 @@ export default function Headphones() {
         <Image
           src={bestGearMobile}
           alt="showcasing best gear"
-          className="rounded-md block md:hidden"
+          className="rounded-md block md:hidden w-4/5"
         />
         <Image
           src={bestGearTablet}

@@ -51,10 +51,10 @@ export default function Speakers() {
               <span className="opacity-50 text-sm uppercase text-colorOne tracking-widest">
                 new product
               </span>
-              <h1 className="font-bold text-5xl uppercase text-black">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase text-black">
                 zx9 speaker
               </h1>
-              <p className="text-sm text-black/70">
+              <p className="text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
                 Upgrade your sound system with the all new ZX9 active speaker.
                 It’s a bookshelf speaker system that offers truly wireless
                 connectivity -- creating new possibilities for more pleasing and
@@ -97,10 +97,10 @@ export default function Speakers() {
           />
           <div>
             <div className="space-y-5 md:space-y-7 w-96 text-center lg:text-start">
-              <h1 className="font-bold text-5xl uppercase text-black">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase text-black">
                 zx7 speaker
               </h1>
-              <p className="text-sm text-black/70">
+              <p className="text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
                 Stream high quality sound wirelessly with minimal loss. The ZX7
                 bookshelf speaker uses high-end audiophile components that
                 represents the top of the line powered speakers for home or
@@ -143,11 +143,11 @@ export default function Speakers() {
       justify-between items-center my-20"
       >
         <div className="w-96 space-y-5 text-center lg:text-start">
-          <h2 className="uppercase font-bold text-4xl text-black">
+          <h2 className="uppercase font-bold text-3xl md:text-4xl text-black">
             Bringing you the <span className="text-colorOne">best</span> audio
             gear
           </h2>
-          <p className="font-medium text-sm text-black/70">
+          <p className="font-medium text-xs md:text-sm text-black/70 w-4/5 mx-auto md:w-auto md:mx-0">
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio
             accessories. We have a large showroom and luxury demonstration rooms
@@ -165,7 +165,7 @@ export default function Speakers() {
         <Image
           src={bestGearMobile}
           alt="showcasing best gear"
-          className="rounded-md block md:hidden"
+          className="rounded-md block md:hidden w-4/5"
         />
         <Image
           src={bestGearTablet}

@@ -24,18 +24,18 @@ import bestGearTablet from "/public/images/shared/tablet/image-best-gear.jpg";
 export default function Home() {
   const router = useRouter();
   return (
-    <main>
+    <main className="">
       <header className="bg-black/90">
         <section className="max-w-5xl mx-auto relative">
           <div className="bg-colorFour/30 w-full h-[.5px]" />
 
           <div className="mt-10 flex items-center">
             <div
-              className="text-white space-y-5 md:space-y-7 w-96 absolute lg:static left-20 
-            bottom-80 md:bottom-96 md:left-[21rem] text-center lg:text-start"
+              className="text-white space-y-5 md:space-y-7 w-96 absolute lg:static left-1/2 transform -translate-x-1/2 
+            bottom-80 md:bottom-96 md:left-[16rem] text-center lg:text-start md:-translate-x-0 md:transform-none"
             >
               <span className="opacity-50 text-sm uppercase">new product</span>
-              <h1 className="font-bold text-5xl uppercase">
+              <h1 className="font-bold text-3xl md:text-5xl uppercase">
                 xx99 mark ii headphones
               </h1>
               <p className="opacity-50 text-sm">

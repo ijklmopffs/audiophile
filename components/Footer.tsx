@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-0 justify-between my-10">
-          <p className="text-white/50 font-medium text-sm w-96 text-center md:text-start md:w-[30rem]">
+          <p className="text-white/50 font-medium text-sm w-80 text-center md:text-start md:w-[30rem]">
             Audiophile is an all in one stop to fulfill your audio needs. We’re
             a small team of music lovers and sound specialists who are devoted
             to helping you get the most out of personal audio. Come and visit
